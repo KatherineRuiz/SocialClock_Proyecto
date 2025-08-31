@@ -1,0 +1,87 @@
+C:\Users\garbr\OneDrive\Escritorio\Social_Clock\Modelos\bin\Debug\Modelos.dll
+C:\Users\garbr\OneDrive\Escritorio\Social_Clock\Modelos\bin\Debug\Modelos.pdb
+C:\Users\garbr\OneDrive\Escritorio\Social_Clock\Modelos\obj\Debug\Modelos.csproj.AssemblyReference.cache
+C:\Users\garbr\OneDrive\Escritorio\Social_Clock\Modelos\obj\Debug\Modelos.csproj.CoreCompileInputs.cache
+C:\Users\garbr\OneDrive\Escritorio\Social_Clock\Modelos\obj\Debug\Modelos.dll
+C:\Users\garbr\OneDrive\Escritorio\Social_Clock\Modelos\obj\Debug\Modelos.pdb
+C:\Users\garbr\OneDrive\Escritorio\FormulariosHome\Modelos\bin\Debug\Modelos.dll
+C:\Users\garbr\OneDrive\Escritorio\FormulariosHome\Modelos\bin\Debug\Modelos.pdb
+C:\Users\garbr\OneDrive\Escritorio\FormulariosHome\Modelos\bin\Debug\System.Data.SqlClient.dll
+C:\Users\garbr\OneDrive\Escritorio\FormulariosHome\Modelos\bin\Debug\System.Data.SqlClient.xml
+C:\Users\garbr\OneDrive\Escritorio\FormulariosHome\Modelos\obj\Debug\Modelos.csproj.AssemblyReference.cache
+C:\Users\garbr\OneDrive\Escritorio\FormulariosHome\Modelos\obj\Debug\Modelos.csproj.CoreCompileInputs.cache
+C:\Users\garbr\OneDrive\Escritorio\FormulariosHome\Modelos\obj\Debug\Modelos.csproj.Up2Date
+C:\Users\garbr\OneDrive\Escritorio\FormulariosHome\Modelos\obj\Debug\Modelos.dll
+C:\Users\garbr\OneDrive\Escritorio\FormulariosHome\Modelos\obj\Debug\Modelos.pdb
+C:\Users\David S\Desktop\Nueva carpeta\SocialClock\Modelos\bin\Debug\Modelos.dll
+C:\Users\David S\Desktop\Nueva carpeta\SocialClock\Modelos\bin\Debug\Modelos.pdb
+C:\Users\David S\Desktop\Nueva carpeta\SocialClock\Modelos\bin\Debug\System.Data.SqlClient.dll
+C:\Users\David S\Desktop\Nueva carpeta\SocialClock\Modelos\bin\Debug\System.Data.SqlClient.xml
+C:\Users\David S\Desktop\Nueva carpeta\SocialClock\Modelos\obj\Debug\Modelos.csproj.AssemblyReference.cache
+C:\Users\David S\Desktop\Nueva carpeta\SocialClock\Modelos\obj\Debug\Modelos.csproj.CoreCompileInputs.cache
+C:\Users\David S\Desktop\Nueva carpeta\SocialClock\Modelos\obj\Debug\Modelos.csproj.Up2Date
+C:\Users\David S\Desktop\Nueva carpeta\SocialClock\Modelos\obj\Debug\Modelos.dll
+C:\Users\David S\Desktop\Nueva carpeta\SocialClock\Modelos\obj\Debug\Modelos.pdb
+C:\Users\garbr\OneDrive\Escritorio\SocialClock\Modelos\bin\Debug\Modelos.dll
+C:\Users\garbr\OneDrive\Escritorio\SocialClock\Modelos\bin\Debug\Modelos.pdb
+C:\Users\garbr\OneDrive\Escritorio\SocialClock\Modelos\bin\Debug\System.Data.SqlClient.dll
+C:\Users\garbr\OneDrive\Escritorio\SocialClock\Modelos\bin\Debug\System.Data.SqlClient.xml
+C:\Users\garbr\OneDrive\Escritorio\SocialClock\Modelos\obj\Debug\Modelos.csproj.AssemblyReference.cache
+C:\Users\garbr\OneDrive\Escritorio\SocialClock\Modelos\obj\Debug\Modelos.csproj.CoreCompileInputs.cache
+C:\Users\garbr\OneDrive\Escritorio\SocialClock\Modelos\obj\Debug\Modelos.csproj.Up2Date
+C:\Users\garbr\OneDrive\Escritorio\SocialClock\Modelos\obj\Debug\Modelos.dll
+C:\Users\garbr\OneDrive\Escritorio\SocialClock\Modelos\obj\Debug\Modelos.pdb
+C:\Users\David S\Desktop\Clone\SocialClock\Modelos\bin\Debug\Modelos.dll
+C:\Users\David S\Desktop\Clone\SocialClock\Modelos\bin\Debug\Modelos.pdb
+C:\Users\David S\Desktop\Clone\SocialClock\Modelos\bin\Debug\System.Data.SqlClient.dll
+C:\Users\David S\Desktop\Clone\SocialClock\Modelos\bin\Debug\System.Data.SqlClient.xml
+C:\Users\David S\Desktop\Clone\SocialClock\Modelos\obj\Debug\Modelos.csproj.AssemblyReference.cache
+C:\Users\David S\Desktop\Clone\SocialClock\Modelos\obj\Debug\Modelos.csproj.CoreCompileInputs.cache
+C:\Users\David S\Desktop\Clone\SocialClock\Modelos\obj\Debug\Modelos.csproj.Up2Date
+C:\Users\David S\Desktop\Clone\SocialClock\Modelos\obj\Debug\Modelos.dll
+C:\Users\David S\Desktop\Clone\SocialClock\Modelos\obj\Debug\Modelos.pdb
+C:\Users\David S\Desktop\clone2\SocialClock\Modelos\bin\Debug\Modelos.dll
+C:\Users\David S\Desktop\clone2\SocialClock\Modelos\bin\Debug\Modelos.pdb
+C:\Users\David S\Desktop\clone2\SocialClock\Modelos\bin\Debug\System.Data.SqlClient.dll
+C:\Users\David S\Desktop\clone2\SocialClock\Modelos\bin\Debug\System.Data.SqlClient.xml
+C:\Users\David S\Desktop\clone2\SocialClock\Modelos\obj\Debug\Modelos.csproj.AssemblyReference.cache
+C:\Users\David S\Desktop\clone2\SocialClock\Modelos\obj\Debug\Modelos.csproj.CoreCompileInputs.cache
+C:\Users\David S\Desktop\clone2\SocialClock\Modelos\obj\Debug\Modelos.csproj.Up2Date
+C:\Users\David S\Desktop\clone2\SocialClock\Modelos\obj\Debug\Modelos.dll
+C:\Users\David S\Desktop\clone2\SocialClock\Modelos\obj\Debug\Modelos.pdb
+C:\Users\David S\Desktop\SocialClock\Modelos\bin\Debug\Modelos.dll
+C:\Users\David S\Desktop\SocialClock\Modelos\bin\Debug\Modelos.pdb
+C:\Users\David S\Desktop\SocialClock\Modelos\bin\Debug\System.Data.SqlClient.dll
+C:\Users\David S\Desktop\SocialClock\Modelos\bin\Debug\System.Data.SqlClient.xml
+C:\Users\David S\Desktop\SocialClock\Modelos\obj\Debug\Modelos.csproj.AssemblyReference.cache
+C:\Users\David S\Desktop\SocialClock\Modelos\obj\Debug\Modelos.csproj.CoreCompileInputs.cache
+C:\Users\David S\Desktop\SocialClock\Modelos\obj\Debug\Modelos.csproj.Up2Date
+C:\Users\David S\Desktop\SocialClock\Modelos\obj\Debug\Modelos.dll
+C:\Users\David S\Desktop\SocialClock\Modelos\obj\Debug\Modelos.pdb
+C:\Users\Estudiante\Desktop\SocialClock\Modelos\bin\Debug\Modelos.dll
+C:\Users\Estudiante\Desktop\SocialClock\Modelos\bin\Debug\Modelos.pdb
+C:\Users\Estudiante\Desktop\SocialClock\Modelos\bin\Debug\System.Data.SqlClient.dll
+C:\Users\Estudiante\Desktop\SocialClock\Modelos\bin\Debug\System.Data.SqlClient.xml
+C:\Users\Estudiante\Desktop\SocialClock\Modelos\obj\Debug\Modelos.csproj.AssemblyReference.cache
+C:\Users\Estudiante\Desktop\SocialClock\Modelos\obj\Debug\Modelos.csproj.CoreCompileInputs.cache
+C:\Users\Estudiante\Desktop\SocialClock\Modelos\obj\Debug\Modelos.csproj.Up2Date
+C:\Users\Estudiante\Desktop\SocialClock\Modelos\obj\Debug\Modelos.dll
+C:\Users\Estudiante\Desktop\SocialClock\Modelos\obj\Debug\Modelos.pdb
+C:\Users\David S\OneDrive\Desktop\SocialClock\Modelos\bin\Debug\Modelos.dll
+C:\Users\David S\OneDrive\Desktop\SocialClock\Modelos\bin\Debug\Modelos.pdb
+C:\Users\David S\OneDrive\Desktop\SocialClock\Modelos\bin\Debug\System.Data.SqlClient.dll
+C:\Users\David S\OneDrive\Desktop\SocialClock\Modelos\bin\Debug\System.Data.SqlClient.xml
+C:\Users\David S\OneDrive\Desktop\SocialClock\Modelos\obj\Debug\Modelos.csproj.AssemblyReference.cache
+C:\Users\David S\OneDrive\Desktop\SocialClock\Modelos\obj\Debug\Modelos.csproj.CoreCompileInputs.cache
+C:\Users\David S\OneDrive\Desktop\SocialClock\Modelos\obj\Debug\Modelos.csproj.Up2Date
+C:\Users\David S\OneDrive\Desktop\SocialClock\Modelos\obj\Debug\Modelos.dll
+C:\Users\David S\OneDrive\Desktop\SocialClock\Modelos\obj\Debug\Modelos.pdb
+C:\Users\Estudiante\Desktop\PTC_Social-Clock\Modelos\bin\Debug\Modelos.dll
+C:\Users\Estudiante\Desktop\PTC_Social-Clock\Modelos\bin\Debug\Modelos.pdb
+C:\Users\Estudiante\Desktop\PTC_Social-Clock\Modelos\bin\Debug\System.Data.SqlClient.dll
+C:\Users\Estudiante\Desktop\PTC_Social-Clock\Modelos\bin\Debug\System.Data.SqlClient.xml
+C:\Users\Estudiante\Desktop\PTC_Social-Clock\Modelos\obj\Debug\Modelos.csproj.AssemblyReference.cache
+C:\Users\Estudiante\Desktop\PTC_Social-Clock\Modelos\obj\Debug\Modelos.csproj.CoreCompileInputs.cache
+C:\Users\Estudiante\Desktop\PTC_Social-Clock\Modelos\obj\Debug\Modelos.csproj.Up2Date
+C:\Users\Estudiante\Desktop\PTC_Social-Clock\Modelos\obj\Debug\Modelos.dll
+C:\Users\Estudiante\Desktop\PTC_Social-Clock\Modelos\obj\Debug\Modelos.pdb

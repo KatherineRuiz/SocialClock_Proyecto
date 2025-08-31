@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{49B1D86A-E762-48B8-9B6C-C10FBA6036D5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Vistas</RootNamespace>
+    <AssemblyName>Vistas</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FontAwesome.Sharp, Version=6.6.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.6.6.0\lib\net48\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controles\RedondearBoton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmCreacionUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmCreacionUsuario.Designer.cs">
+      <DependentUpon>frmCreacionUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmInicio-Colaborador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmInicio-Colaborador.Designer.cs">
+      <DependentUpon>frmInicio-Colaborador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmInicio.Designer.cs">
+      <DependentUpon>frmInicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmListaProyectos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmListaProyectos.Designer.cs">
+      <DependentUpon>frmListaProyectos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmLogin-Colaborador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmLogin-Colaborador.Designer.cs">
+      <DependentUpon>frmLogin-Colaborador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmProyectos-Colaborador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmProyectos-Colaborador.Designer.cs">
+      <DependentUpon>frmProyectos-Colaborador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmResultado-Colaborador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmResultado-Colaborador.Designer.cs">
+      <DependentUpon>frmResultado-Colaborador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmResultado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmResultado.Designer.cs">
+      <DependentUpon>frmResultado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmSeleccionDeRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmSeleccionDeRol.Designer.cs">
+      <DependentUpon>frmSeleccionDeRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmSocialClock-Colaborador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmSocialClock-Colaborador.Designer.cs">
+      <DependentUpon>frmSocialClock-Colaborador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmSocialClock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmSocialClock.Designer.cs">
+      <DependentUpon>frmSocialClock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Formularios\frmCreacionUsuario.resx">
+      <DependentUpon>frmCreacionUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmInicio-Colaborador.resx">
+      <DependentUpon>frmInicio-Colaborador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmInicio.resx">
+      <DependentUpon>frmInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmListaProyectos.resx">
+      <DependentUpon>frmListaProyectos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmLogin-Colaborador.resx">
+      <DependentUpon>frmLogin-Colaborador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmProyectos-Colaborador.resx">
+      <DependentUpon>frmProyectos-Colaborador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmResultado-Colaborador.resx">
+      <DependentUpon>frmResultado-Colaborador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmResultado.resx">
+      <DependentUpon>frmResultado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmSeleccionDeRol.resx">
+      <DependentUpon>frmSeleccionDeRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmSocialClock-Colaborador.resx">
+      <DependentUpon>frmSocialClock-Colaborador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmSocialClock.resx">
+      <DependentUpon>frmSocialClock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\uno.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\primer_año.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\primero.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\segundo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tercero.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ajustes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inicio.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inicio1.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\proyectos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\proyectos1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\graficos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home1_.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\homee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home-.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Modelos\Modelos.csproj">
+      <Project>{ab299c24-3266-4099-b3a7-d641a621f34a}</Project>
+      <Name>Modelos</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ajustes1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ajustes2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inicio2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\proyectos2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\estadistica.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondodos.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura de pantalla 2025-07-21 195352.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura de pantalla 2025-07-21 195419.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\socialc1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\admin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\colaboradores.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
