@@ -46,9 +46,10 @@ namespace Vistas.Formularios
 
         private void proyectoConexion()
         {
-            dgvBitacoraEstudiantes.DataSource = null;
-            dgvBitacoraEstudiantes.DataSource = Proyecto.CargarEstudianteProyecto();
+            dgvBitacoraEstudiantesColaborador.DataSource = null;
+            dgvBitacoraEstudiantesColaborador.DataSource = Proyecto.ObtenerEstudiantesPorProyecto(idProyecto);
         }
+
 
         private void dgvContenido_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -68,6 +69,7 @@ namespace Vistas.Formularios
         private void frmProyectos_Colaborador_Load(object sender, EventArgs e)
         {
             mostrarProyecto();
+          
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -77,6 +79,74 @@ namespace Vistas.Formularios
         }
 
         private void dgvBitacoraEstudiantes_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvBitacoraEstudiantes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow fila = dgvContenido.Rows[e.RowIndex];
+
+                txtNombreEstudiante.Text = fila.Cells["Nombre"].Value?.ToString() ?? "";
+                txtHoras.Text = fila.Cells["Horas"].Value?.ToString() ?? "";
+                txtActvidad.Text = fila.Cells["ActividadRealizada"].Value?.ToString() ?? "";
+            }
+        }
+
+        private void dgvBitacoraEstudiantesColaborador_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex >= 0)
+                {
+                    DataGridViewRow fila = dgvBitacoraEstudiantesColaborador.Rows[e.RowIndex];
+
+                    // Asegúrate de que estas columnas existen exactamente con ese nombre en tu DataGridView
+                    txtHoras.Text = fila.Cells["Horas"].Value?.ToString();
+                    txtActvidad.Text = fila.Cells["Proyecto"].Value?.ToString();
+
+                    // Si tienes una columna "Fecha", puedes activarla aquí:
+                    // dtpFechaBitacora.Value = Convert.ToDateTime(fila.Cells["Fecha"].Value);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo mostrar: " + ex.Message, "Error catastrófico");
+            }
+        }
+
+
+        private void btnVerBitacora_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvContenido.SelectedRows.Count > 0)
+                {
+                    int idEstudiante = Convert.ToInt32(dgvContenido.SelectedRows[0].Cells["Num."].Value);
+
+                    // Asegúrate de tener el using correcto o usar el nombre completo de la clase aquí
+                    DataTable bitacora = BitacoraSocial.ObtenerBitacoraPorEstudiante(idEstudiante);
+
+                    dgvBitacoraEstudiantesColaborador.DataSource = bitacora;
+
+                    // Cambiar a la pestaña donde está el dgvBitacoraEstudiantes
+                    tabControl1.SelectedTab = tpEstudiantesProyecto;
+                }
+                else
+                {
+                    MessageBox.Show("Selecciona un estudiante para ver su bitácora.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("No se pudo realizar la accion"+ex.Message,"Error Catastrofico");
+            }
+        }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
         {
 
         }

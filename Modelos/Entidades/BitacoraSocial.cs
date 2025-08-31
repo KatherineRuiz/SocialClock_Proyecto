@@ -111,5 +111,19 @@ namespace Modelos.Entidades
             }
         }
 
+        public static DataTable ObtenerBitacoraPorEstudiante(int idEstudiante)
+        {
+            using (SqlConnection con = Conexion.Conectar())
+                {
+                string query = "SELECT idBitacora AS [N°], registroHoras AS Horas, descripcion AS Actividad, fechaBitacora AS Fecha, idEstudiante AS Estudiante " +
+                    $"FROM BitacoraSocial WHERE idEstudiante = @idEstudiante";
+                SqlDataAdapter da = new SqlDataAdapter(query, con);
+                da.SelectCommand.Parameters.AddWithValue("@idEstudiante", idEstudiante);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+        }
+
     }
 }

@@ -526,3 +526,46 @@ Seccion on Esp_Niv_Sec.id_Seccion = Seccion.idSeccion where NivelAcademico.idNiv
 Especialidad.nombreEspecialidad, NivelAcademico.nombreNivel, Seccion.nombreSeccion, nie, estadoEstudiante, Proyecto.nombreProyecto;
 
 select * from DatosEstudiantesPrimero
+
+SELECT 
+    Estudiante.idEstudiante,
+    Estudiante.nombreEstudiante AS Nombre,
+    Estudiante.carnet AS Carnet,
+    Especialidad.nombreEspecialidad AS Especialidad,
+    NivelAcademico.nombreNivel AS [Nivel académico],
+    Seccion.nombreSeccion AS Seccion,
+    Estudiante.nie AS NIE,
+    CASE Estudiante.estadoEstudiante
+        WHEN 0 THEN 'ACTIVO'
+        WHEN 1 THEN 'INACTIVO'
+    END AS Estado,
+    Proyecto.nombreProyecto AS Proyecto,
+    ISNULL(SUM(BitacoraSocial.registroHoras), 0) AS [Horas]
+FROM 
+    Estudiante
+INNER JOIN Esp_Niv_Sec 
+    ON Estudiante.id_EspNivSec = Esp_Niv_Sec.idEsp_Niv_Sec
+INNER JOIN Especialidad 
+    ON Esp_Niv_Sec.id_Especialidad = Especialidad.idEspecialidad
+INNER JOIN NivelAcademico 
+    ON Esp_Niv_Sec.id_NivelAcademico = NivelAcademico.idNivelAcademico
+INNER JOIN Seccion 
+    ON Esp_Niv_Sec.id_Seccion = Seccion.idSeccion
+INNER JOIN Proyecto 
+    ON Estudiante.id_Proyecto = Proyecto.idProyecto
+LEFT JOIN BitacoraSocial 
+    ON BitacoraSocial.idEstudiante = Estudiante.idEstudiante
+WHERE 
+    Proyecto.idProyecto = 1
+GROUP BY 
+    Estudiante.idEstudiante,
+    Estudiante.nombreEstudiante,
+    Estudiante.carnet,
+    Especialidad.nombreEspecialidad,
+    NivelAcademico.nombreNivel,
+    Seccion.nombreSeccion,
+    Estudiante.nie,
+    Estudiante.estadoEstudiante,
+    Proyecto.nombreProyecto;
+
+

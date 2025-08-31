@@ -80,25 +80,21 @@ namespace Vistas.Formularios
 
         }
 
-        private void dgvContenido_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        // Método que rellena los datos de la fila seleccionada
+        private void LlenarDatosDesdeFila(DataGridViewRow fila)
         {
             try
             {
-                if (e.RowIndex >= 0) // Asegura que no sea encabezado
+                if (fila != null)
                 {
-                    DataGridViewRow fila = dgvContenido.Rows[e.RowIndex];
+                    // Leer los valores directamente
+                    string estado = fila.Cells["Estado"].Value?.ToString();
+                    string proyecto = fila.Cells["Proyecto"].Value?.ToString();
 
-                    // Leer columnas necesarias
-                    // string carnet = fila.Cells["Carnet"].Value.ToString();
-                    int numero = Convert.ToInt32(fila.Cells["Num."].Value.ToString());
-                   
-                    string estado = fila.Cells["Estado"].Value.ToString();
-                    string proyecto = fila.Cells["Proyecto"].Value.ToString();
+                    // Asignar al TextBox
+                    txtNombreProyecto.Text = proyecto ?? "";
 
-                   
-
-
-                    // Rellenar RadioButton según Estado
+                    // Asignar RadioButtons según estado
                     if (estado == "ACTIVO")
                     {
                         rbnActivo.Checked = true;
@@ -109,18 +105,45 @@ namespace Vistas.Formularios
                         rbnActivo.Checked = false;
                         rbnInactivo.Checked = true;
                     }
-
-
-
-                    // Cambiar a la pestaña correspondiente
-                     tabControl1.SelectedTab = tpEstudiantesProyecto;
+                    else
+                    {
+                        // Estado desconocido: limpiar ambos
+                        rbnActivo.Checked = false;
+                        rbnInactivo.Checked = false;
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al seleccionar el estudiante:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al llenar los datos:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
+        // Un clic para rellenar los datos
+        private void dgvContenido_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow fila = dgvContenido.Rows[e.RowIndex];
+                LlenarDatosDesdeFila(fila);
+            }
+        }
+
+        // Doble clic para ir a la otra pestaña
+        private void dgvContenido_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                // Opcional: puedes volver a llamar el método por seguridad
+                DataGridViewRow fila = dgvContenido.Rows[e.RowIndex];
+                LlenarDatosDesdeFila(fila);
+
+                // Cambiar de pestaña
+                // // Cambia esto por el nombre de tu TabPage
+            }
+        }
+
 
         private void btnAgregar_Click_1(object sender, EventArgs e)
         {
@@ -194,6 +217,7 @@ namespace Vistas.Formularios
 
         private void frmListaProyectos_Load(object sender, EventArgs e)
         {
+            this.dgvBitacoraEstudiantes.CellClick += new DataGridViewCellEventHandler(dgvBitacoraEstudiantes_CellClick);
 
         }
 
@@ -274,14 +298,22 @@ namespace Vistas.Formularios
 
         private void dgvBitacoraEstudiantes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            try
             {
-                DataGridViewRow fila = dgvBitacoraEstudiantes.Rows[e.RowIndex];
+                if (e.RowIndex >= 0)
+                {
+                    DataGridViewRow fila = dgvBitacoraEstudiantes.Rows[e.RowIndex];
 
-                txtEstudianteBitacora.Text = fila.Cells["Estudiante"].Value.ToString();
-                txtHoras.Text = fila.Cells["Horas"].Value.ToString();
-                txtActvidad.Text = fila.Cells["Actividad"].Value.ToString();
-                dtpFechaBitacora.Value = Convert.ToDateTime(fila.Cells["Fecha"].Value);
+                    txtEstudianteBitacora.Text = fila.Cells["Nombre"].Value.ToString();
+                    txtHoras.Text = fila.Cells["Horas"].Value.ToString();
+                    txtActvidad.Text = fila.Cells["Proyecto"].Value.ToString();
+                   // dtpFechaBitacora.Value = Convert.ToDateTime(fila.Cells["Fecha"].Value);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("No se pudo mostrar" +ex.Message,"Error Catastrofico");
             }
         }
 
@@ -391,6 +423,89 @@ namespace Vistas.Formularios
 
                 MessageBox.Show("No se pudo eliminar , intenta de nuevo", "Error catastrofico" + ex);
             }
+        }
+
+      
+
+        private void dgvContenido_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvContenido_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow fila = dgvContenido.Rows[e.RowIndex];
+                LlenarDatosDesdeFila(fila);
+            }
+            if (e.RowIndex >= 0)
+            {
+                try
+                {
+                    // Obtener la fila seleccionada
+                    DataGridViewRow fila = dgvContenido.Rows[e.RowIndex];
+
+                    // Obtener el idProyecto desde la celda (asegúrate de que se llama así en el DataGridView)
+                    int idProyecto = Convert.ToInt32(fila.Cells["Num."].Value);
+
+                    // Llamar al método del modelo que devuelve los estudiantes del proyecto
+                    DataTable estudiantes = Proyecto.ObtenerEstudiantesPorProyecto(idProyecto);
+
+                    // Asignar el resultado al DataGridView que está en el otro tab
+                    dgvBitacoraEstudiantes.DataSource = estudiantes;
+
+                    // Cambiar a la pestaña que contiene el dgvBitacoraEstudiantes
+                    tabControl1.SelectedTab = tpEstudiantesProyecto; // Asegúrate de que este es el nombre correcto del TabPage
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al seleccionar el proyecto: " + ex.Message);
+                }
+            }
+        }
+
+        private void dgvContenido_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            tabControl1.SelectedTab = tpEstudiantesProyecto;
+           
+        }
+
+        private void btnRegresarProyectos_Click(object sender, EventArgs e)
+        {
+        
+        }
+
+        private void btnRegresarEstudiantes_Click(object sender, EventArgs e)
+        {
+            new frmListaProyectos().Show();
+            this.Hide();
+        }
+
+        private void dgvBitacoraEstudiantes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow fila = dgvBitacoraEstudiantes.Rows[e.RowIndex];
+
+                txtEstudianteBitacora.Text = fila.Cells["Nombre"].Value?.ToString();
+                
+                txtHoras.Text = fila.Cells["Horas"].Value?.ToString(); // Asegúrate que esta columna esté en tu consulta SQL como 'Horas'
+                txtActvidad.Text = fila.Cells["Proyecto"].Value?.ToString();
+                
+            }
+        }
+
+        private void tpEstudiantesProyecto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnVerBitacora_Click(object sender, EventArgs e)
+        {
+            BitacoraSocial bitacora = new BitacoraSocial();
+            bitacora.IdEstudiante = int.Parse(dgvBitacoraEstudiantes.CurrentRow.Cells[0].Value.ToString());
+           dgvBitacoraEstudiantes.DataSource = BitacoraSocial.ObtenerBitacoraPorEstudiante(bitacora.IdEstudiante);
         }
     }
 }

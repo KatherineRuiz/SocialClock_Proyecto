@@ -162,5 +162,76 @@ namespace Modelos.Entidades
         }
 
 
+        public static DataTable ObtenerEstudiantesPorProyecto(int idProyecto)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                string connectionString = Conexion.Conectar().ConnectionString;
+
+                string query = @"
+        SELECT 
+            Estudiante.idEstudiante AS [N°],
+            Estudiante.nombreEstudiante AS Nombre,
+            Estudiante.carnet AS Carnet,
+            Especialidad.nombreEspecialidad AS Especialidad,
+            NivelAcademico.nombreNivel AS [Nivel académico],
+            Seccion.nombreSeccion AS Seccion,
+            Estudiante.nie AS NIE,
+            CASE Estudiante.estadoEstudiante
+                WHEN 0 THEN 'ACTIVO'
+                WHEN 1 THEN 'INACTIVO'
+            END AS Estado,
+            Proyecto.nombreProyecto AS Proyecto,
+            ISNULL(SUM(BitacoraSocial.registroHoras), 0) AS [Horas]
+        FROM 
+            Estudiante
+        INNER JOIN Esp_Niv_Sec 
+            ON Estudiante.id_EspNivSec = Esp_Niv_Sec.idEsp_Niv_Sec
+        INNER JOIN Especialidad 
+            ON Esp_Niv_Sec.id_Especialidad = Especialidad.idEspecialidad
+        INNER JOIN NivelAcademico 
+            ON Esp_Niv_Sec.id_NivelAcademico = NivelAcademico.idNivelAcademico
+        INNER JOIN Seccion 
+            ON Esp_Niv_Sec.id_Seccion = Seccion.idSeccion
+        INNER JOIN Proyecto 
+            ON Estudiante.id_Proyecto = Proyecto.idProyecto
+        LEFT JOIN BitacoraSocial 
+            ON BitacoraSocial.idEstudiante = Estudiante.idEstudiante
+        WHERE 
+            Proyecto.idProyecto = @idProyecto
+        GROUP BY 
+            Estudiante.idEstudiante,
+            Estudiante.nombreEstudiante,
+            Estudiante.carnet,
+            Especialidad.nombreEspecialidad,
+            NivelAcademico.nombreNivel,
+            Seccion.nombreSeccion,
+            Estudiante.nie,
+            Estudiante.estadoEstudiante,
+            Proyecto.nombreProyecto;";
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@idProyecto", idProyecto);
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    conn.Open();
+                    adapter.Fill(dt);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener estudiantes por proyecto: " + ex.Message, "Error Catastrofico");
+            }
+
+            return dt;
+        }
+
+
+
+
+
     }
 }
