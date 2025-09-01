@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -42,6 +43,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.btnRegresar = new FontAwesome.Sharp.IconButton();
+            this.tlpAyuda = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -158,6 +160,7 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(213, 18);
             this.txtUsuario.TabIndex = 1;
+            this.tlpAyuda.SetToolTip(this.txtUsuario, "Ingrese su correo electrónico institucional");
             this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuario_KeyPress);
             // 
             // pictureBox1
@@ -192,6 +195,7 @@
             this.txtClave.PasswordChar = '*';
             this.txtClave.Size = new System.Drawing.Size(213, 18);
             this.txtClave.TabIndex = 1;
+            this.tlpAyuda.SetToolTip(this.txtClave, "Ingrese su contraseña");
             this.txtClave.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClave_KeyPress);
             // 
             // pictureBox2
@@ -231,6 +235,10 @@
             this.btnRegresar.TabIndex = 2;
             this.btnRegresar.UseVisualStyleBackColor = false;
             this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
+            // 
+            // tlpAyuda
+            // 
+            this.tlpAyuda.ToolTipTitle = "Mensaje de ayuda";
             // 
             // frmLogin_Colaborador
             // 
@@ -275,5 +283,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnIngresar;
         private FontAwesome.Sharp.IconButton btnRegresar;
+        private System.Windows.Forms.ToolTip tlpAyuda;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmResultado_Colaborador));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.gbServicioSocial = new System.Windows.Forms.GroupBox();
@@ -42,6 +43,7 @@
             this.txtNumEstudiante = new System.Windows.Forms.TextBox();
             this.txtActvidad = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.dtpFechaBitacora = new System.Windows.Forms.DateTimePicker();
             this.txtHoras = new System.Windows.Forms.MaskedTextBox();
             this.lblFecha = new System.Windows.Forms.Label();
             this.radioButton8 = new System.Windows.Forms.RadioButton();
@@ -88,7 +90,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnBuscar = new Vistas.Clases.RedondearBoton();
             this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.dtpFechaBitacora = new System.Windows.Forms.DateTimePicker();
+            this.tlpAyuda = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.gbServicioSocial.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -281,6 +283,7 @@
             this.txtActvidad.Size = new System.Drawing.Size(636, 61);
             this.txtActvidad.TabIndex = 9;
             this.txtActvidad.Text = "         ";
+            this.tlpAyuda.SetToolTip(this.txtActvidad, "Ingrese caracteres de texto");
             this.txtActvidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtActvidad_KeyPress);
             // 
             // tableLayoutPanel3
@@ -288,7 +291,7 @@
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.95349F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.04651F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 299F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
             this.tableLayoutPanel3.Controls.Add(this.dtpFechaBitacora, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.txtHoras, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.lblFecha, 1, 0);
@@ -300,6 +303,18 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(638, 54);
             this.tableLayoutPanel3.TabIndex = 10;
             // 
+            // dtpFechaBitacora
+            // 
+            this.dtpFechaBitacora.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtpFechaBitacora.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaBitacora.Location = new System.Drawing.Point(342, 11);
+            this.dtpFechaBitacora.MaxDate = new System.DateTime(2025, 9, 1, 0, 0, 0, 0);
+            this.dtpFechaBitacora.MinDate = new System.DateTime(2025, 9, 1, 0, 0, 0, 0);
+            this.dtpFechaBitacora.Name = "dtpFechaBitacora";
+            this.dtpFechaBitacora.Size = new System.Drawing.Size(291, 31);
+            this.dtpFechaBitacora.TabIndex = 13;
+            this.dtpFechaBitacora.Value = new System.DateTime(2025, 9, 1, 0, 0, 0, 0);
+            // 
             // txtHoras
             // 
             this.txtHoras.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -309,6 +324,7 @@
             this.txtHoras.Name = "txtHoras";
             this.txtHoras.Size = new System.Drawing.Size(190, 31);
             this.txtHoras.TabIndex = 12;
+            this.tlpAyuda.SetToolTip(this.txtHoras, "Ingrese caracteres numéricos");
             this.txtHoras.ValidatingType = typeof(int);
             this.txtHoras.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtHoras_KeyPress);
             // 
@@ -318,7 +334,7 @@
             this.lblFecha.AutoSize = true;
             this.lblFecha.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFecha.ForeColor = System.Drawing.Color.Black;
-            this.lblFecha.Location = new System.Drawing.Point(221, 9);
+            this.lblFecha.Location = new System.Drawing.Point(220, 9);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(112, 36);
             this.lblFecha.TabIndex = 9;
@@ -505,7 +521,7 @@
             this.tableLayoutPanel4.ColumnCount = 3;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.78571F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.21429F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 196F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 197F));
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel5, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel6, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.panel7, 0, 0);
@@ -539,29 +555,31 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.4086F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(446, 161);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(445, 161);
             this.tableLayoutPanel5.TabIndex = 4;
             // 
             // txtNie
             // 
             this.txtNie.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNie.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNie.Location = new System.Drawing.Point(253, 124);
+            this.txtNie.Location = new System.Drawing.Point(252, 124);
             this.txtNie.Mask = "00000000";
             this.txtNie.Name = "txtNie";
             this.txtNie.Size = new System.Drawing.Size(190, 31);
             this.txtNie.TabIndex = 11;
+            this.tlpAyuda.SetToolTip(this.txtNie, "Ingrese caracteres numéricos");
             this.txtNie.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNie_KeyPress);
             // 
             // txtCarnet
             // 
             this.txtCarnet.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCarnet.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCarnet.Location = new System.Drawing.Point(253, 83);
+            this.txtCarnet.Location = new System.Drawing.Point(252, 83);
             this.txtCarnet.Mask = "00000000";
             this.txtCarnet.Name = "txtCarnet";
             this.txtCarnet.Size = new System.Drawing.Size(190, 31);
             this.txtCarnet.TabIndex = 10;
+            this.tlpAyuda.SetToolTip(this.txtCarnet, "Ingrese caracteres numericos");
             this.txtCarnet.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCarnet_KeyPress);
             // 
             // lblNie
@@ -606,7 +624,7 @@
             this.lblCarnet.AutoSize = true;
             this.lblCarnet.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCarnet.ForeColor = System.Drawing.Color.Black;
-            this.lblCarnet.Location = new System.Drawing.Point(64, 80);
+            this.lblCarnet.Location = new System.Drawing.Point(63, 80);
             this.lblCarnet.Name = "lblCarnet";
             this.lblCarnet.Size = new System.Drawing.Size(122, 36);
             this.lblCarnet.TabIndex = 3;
@@ -618,7 +636,7 @@
             this.cbEspecialidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEspecialidad.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbEspecialidad.FormattingEnabled = true;
-            this.cbEspecialidad.Location = new System.Drawing.Point(253, 3);
+            this.cbEspecialidad.Location = new System.Drawing.Point(252, 3);
             this.cbEspecialidad.Name = "cbEspecialidad";
             this.cbEspecialidad.Size = new System.Drawing.Size(190, 30);
             this.cbEspecialidad.TabIndex = 5;
@@ -629,7 +647,7 @@
             this.cbProyecto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbProyecto.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbProyecto.FormattingEnabled = true;
-            this.cbProyecto.Location = new System.Drawing.Point(253, 41);
+            this.cbProyecto.Location = new System.Drawing.Point(252, 41);
             this.cbProyecto.Name = "cbProyecto";
             this.cbProyecto.Size = new System.Drawing.Size(190, 30);
             this.cbProyecto.TabIndex = 6;
@@ -640,11 +658,11 @@
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel6.Controls.Add(this.panel6, 0, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(940, 3);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(939, 3);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.35294F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(191, 161);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(192, 161);
             this.tableLayoutPanel6.TabIndex = 2;
             // 
             // panel6
@@ -654,7 +672,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(3, 3);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(185, 155);
+            this.panel6.Size = new System.Drawing.Size(186, 155);
             this.panel6.TabIndex = 2;
             // 
             // btnLimpiarDatos
@@ -781,6 +799,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(194, 31);
             this.txtNombre.TabIndex = 6;
+            this.tlpAyuda.SetToolTip(this.txtNombre, "Ingrese caracteres de texto");
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // cbNivelAcademico
@@ -963,19 +982,8 @@
             this.txtBuscar.Size = new System.Drawing.Size(532, 26);
             this.txtBuscar.TabIndex = 2;
             this.txtBuscar.Text = "Ingrese el carnet del estudiante";
+            this.tlpAyuda.SetToolTip(this.txtBuscar, "Ingrese de 1 a 8 caracteres del carnet");
             this.txtBuscar.Click += new System.EventHandler(this.txtBuscar_Click);
-            // 
-            // dtpFechaBitacora
-            // 
-            this.dtpFechaBitacora.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dtpFechaBitacora.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaBitacora.Location = new System.Drawing.Point(342, 11);
-            this.dtpFechaBitacora.MaxDate = new System.DateTime(2025, 9, 1, 0, 0, 0, 0);
-            this.dtpFechaBitacora.MinDate = new System.DateTime(2025, 9, 1, 0, 0, 0, 0);
-            this.dtpFechaBitacora.Name = "dtpFechaBitacora";
-            this.dtpFechaBitacora.Size = new System.Drawing.Size(291, 31);
-            this.dtpFechaBitacora.TabIndex = 13;
-            this.dtpFechaBitacora.Value = new System.DateTime(2025, 9, 1, 0, 0, 0, 0);
             // 
             // frmResultado_Colaborador
             // 
@@ -1083,5 +1091,6 @@
         private System.Windows.Forms.Panel panel5;
         private FontAwesome.Sharp.IconButton btnRegresar;
         private System.Windows.Forms.DateTimePicker dtpFechaBitacora;
+        private System.Windows.Forms.ToolTip tlpAyuda;
     }
 }

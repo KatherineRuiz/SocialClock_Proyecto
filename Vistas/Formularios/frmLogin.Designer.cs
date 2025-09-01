@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pnlLogin = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -36,10 +37,11 @@
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtClave = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.btnRegresar = new FontAwesome.Sharp.IconButton();
-            this.txtClave = new System.Windows.Forms.TextBox();
+            this.tlpAyuda = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.pnlLogin.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -133,6 +135,7 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(213, 18);
             this.txtUsuario.TabIndex = 1;
+            this.tlpAyuda.SetToolTip(this.txtUsuario, "Ingrese su correo electrónico institucional");
             this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuario_KeyPress);
             // 
             // pictureBox1
@@ -154,6 +157,21 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(374, 54);
             this.panel2.TabIndex = 10;
+            // 
+            // txtClave
+            // 
+            this.txtClave.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtClave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtClave.Location = new System.Drawing.Point(91, 19);
+            this.txtClave.Margin = new System.Windows.Forms.Padding(2);
+            this.txtClave.MaxLength = 10;
+            this.txtClave.Multiline = true;
+            this.txtClave.Name = "txtClave";
+            this.txtClave.PasswordChar = '*';
+            this.txtClave.Size = new System.Drawing.Size(213, 18);
+            this.txtClave.TabIndex = 2;
+            this.tlpAyuda.SetToolTip(this.txtClave, "Ingrese su contraseña");
+            this.txtClave.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClave_KeyPress_1);
             // 
             // pictureBox2
             // 
@@ -194,19 +212,9 @@
             this.btnRegresar.UseVisualStyleBackColor = false;
             this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
-            // txtClave
+            // tlpAyuda
             // 
-            this.txtClave.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtClave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtClave.Location = new System.Drawing.Point(91, 19);
-            this.txtClave.Margin = new System.Windows.Forms.Padding(2);
-            this.txtClave.MaxLength = 10;
-            this.txtClave.Multiline = true;
-            this.txtClave.Name = "txtClave";
-            this.txtClave.PasswordChar = '*';
-            this.txtClave.Size = new System.Drawing.Size(213, 18);
-            this.txtClave.TabIndex = 2;
-            this.txtClave.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClave_KeyPress_1);
+            this.tlpAyuda.ToolTipTitle = "Mensaje de ayuda";
             // 
             // frmLogin
             // 
@@ -249,5 +257,6 @@
         private System.Windows.Forms.Button btnIngresar;
         private FontAwesome.Sharp.IconButton btnRegresar;
         private System.Windows.Forms.TextBox txtClave;
+        private System.Windows.Forms.ToolTip tlpAyuda;
     }
 }

@@ -146,7 +146,7 @@
             this.tableLayoutPanel4.ColumnCount = 3;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.50746F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.49254F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 367F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 368F));
             this.tableLayoutPanel4.Controls.Add(this.panel4, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel6, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel5, 0, 0);
@@ -165,9 +165,9 @@
             this.panel4.Controls.Add(this.btnAgregar);
             this.panel4.Controls.Add(this.btnEditar);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(769, 3);
+            this.panel4.Location = new System.Drawing.Point(768, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(362, 156);
+            this.panel4.Size = new System.Drawing.Size(363, 156);
             this.panel4.TabIndex = 1;
             // 
             // btnEliminar
@@ -265,7 +265,7 @@
             this.tableLayoutPanel6.Controls.Add(this.lblRol, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.lblEstadoUsuario, 0, 1);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(375, 3);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(374, 3);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 2;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.62385F));
@@ -378,7 +378,7 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.63935F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(366, 156);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(365, 156);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // lblUsuario
@@ -387,7 +387,7 @@
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.ForeColor = System.Drawing.Color.Black;
-            this.lblUsuario.Location = new System.Drawing.Point(8, 1);
+            this.lblUsuario.Location = new System.Drawing.Point(7, 1);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(100, 72);
             this.lblUsuario.TabIndex = 1;
@@ -399,7 +399,7 @@
             this.lblClave.AutoSize = true;
             this.lblClave.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblClave.ForeColor = System.Drawing.Color.Black;
-            this.lblClave.Location = new System.Drawing.Point(4, 97);
+            this.lblClave.Location = new System.Drawing.Point(3, 97);
             this.lblClave.Name = "lblClave";
             this.lblClave.Size = new System.Drawing.Size(108, 36);
             this.lblClave.TabIndex = 2;
@@ -408,25 +408,25 @@
             // txtUsuario
             // 
             this.txtUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtUsuario.Location = new System.Drawing.Point(118, 20);
+            this.txtUsuario.Location = new System.Drawing.Point(117, 20);
             this.txtUsuario.Margin = new System.Windows.Forms.Padding(2);
             this.txtUsuario.MaxLength = 40;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(246, 34);
             this.txtUsuario.TabIndex = 5;
-            this.tlpAyuda.SetToolTip(this.txtUsuario, "Ingrese una contraseña con  numeros/letras");
+            this.tlpAyuda.SetToolTip(this.txtUsuario, "Ingrese un correo institucional");
             this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuario_KeyPress);
             // 
             // txtClave
             // 
             this.txtClave.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtClave.Location = new System.Drawing.Point(118, 98);
+            this.txtClave.Location = new System.Drawing.Point(117, 98);
             this.txtClave.Margin = new System.Windows.Forms.Padding(2);
             this.txtClave.MaxLength = 10;
             this.txtClave.Name = "txtClave";
             this.txtClave.Size = new System.Drawing.Size(246, 34);
             this.txtClave.TabIndex = 6;
-            this.tlpAyuda.SetToolTip(this.txtClave, "Ingrese una contraseña segura.");
+            this.tlpAyuda.SetToolTip(this.txtClave, "Ingrese una contraseña con  numeros/letras");
             this.txtClave.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClave_KeyPress);
             // 
             // pnlBienvenida
@@ -496,6 +496,7 @@
             this.txtBuscar.Size = new System.Drawing.Size(532, 26);
             this.txtBuscar.TabIndex = 2;
             this.txtBuscar.Text = "Ingrese el nombre del usuario";
+            this.tlpAyuda.SetToolTip(this.txtBuscar, "Ingrese de 1 a 8 cara caracteres del carnet");
             this.txtBuscar.Click += new System.EventHandler(this.txtBuscar_Click);
             this.txtBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscar_KeyPress);
             // 

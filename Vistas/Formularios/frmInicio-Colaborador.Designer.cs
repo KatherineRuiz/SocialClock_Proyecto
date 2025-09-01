@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInicio_Colaborador));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
             this.tlpInicio = new System.Windows.Forms.TableLayoutPanel();
             this.pnlBienvenida = new System.Windows.Forms.Panel();
@@ -80,6 +81,7 @@
             this.dgvPrimerAño = new System.Windows.Forms.DataGridView();
             this.pnlEspacio1 = new System.Windows.Forms.Panel();
             this.btnPrimerAño = new Vistas.Clases.RedondearBoton();
+            this.tlpAyuda = new System.Windows.Forms.ToolTip(this.components);
             this.pnlBusqueda.SuspendLayout();
             this.tlpInicio.SuspendLayout();
             this.pnlBienvenida.SuspendLayout();
@@ -181,6 +183,7 @@
             this.txtBuscar.Size = new System.Drawing.Size(532, 26);
             this.txtBuscar.TabIndex = 4;
             this.txtBuscar.Text = "Ingrese el carnet del estudiante";
+            this.tlpAyuda.SetToolTip(this.txtBuscar, "Ingrese de 1 a 8 caracteres del carnet del estudiante");
             this.txtBuscar.Click += new System.EventHandler(this.txtBuscar_Click);
             this.txtBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscar_KeyPress);
             // 
@@ -249,7 +252,7 @@
             this.tableLayoutPanel4.ColumnCount = 3;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.4689F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.5311F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 319F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 320F));
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel6, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel7, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.panel1, 0, 0);
@@ -283,29 +286,31 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.4086F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(444, 178);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(443, 178);
             this.tableLayoutPanel6.TabIndex = 4;
             // 
             // txtNie
             // 
             this.txtNie.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNie.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNie.Location = new System.Drawing.Point(287, 137);
+            this.txtNie.Location = new System.Drawing.Point(286, 137);
             this.txtNie.Mask = "00000000";
             this.txtNie.Name = "txtNie";
             this.txtNie.Size = new System.Drawing.Size(154, 31);
             this.txtNie.TabIndex = 11;
+            this.tlpAyuda.SetToolTip(this.txtNie, "Ingrese caracteres numérico");
             this.txtNie.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNie_KeyPress);
             // 
             // txtCarnet
             // 
             this.txtCarnet.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCarnet.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCarnet.Location = new System.Drawing.Point(287, 89);
+            this.txtCarnet.Location = new System.Drawing.Point(286, 89);
             this.txtCarnet.Mask = "00000000";
             this.txtCarnet.Name = "txtCarnet";
             this.txtCarnet.Size = new System.Drawing.Size(154, 31);
             this.txtCarnet.TabIndex = 10;
+            this.tlpAyuda.SetToolTip(this.txtCarnet, "Ingrese caracteres numéricos");
             this.txtCarnet.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCarnet_KeyPress);
             // 
             // lblNie
@@ -350,7 +355,7 @@
             this.lblCarnet.AutoSize = true;
             this.lblCarnet.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCarnet.ForeColor = System.Drawing.Color.Black;
-            this.lblCarnet.Location = new System.Drawing.Point(81, 87);
+            this.lblCarnet.Location = new System.Drawing.Point(80, 87);
             this.lblCarnet.Name = "lblCarnet";
             this.lblCarnet.Size = new System.Drawing.Size(122, 36);
             this.lblCarnet.TabIndex = 3;
@@ -362,7 +367,7 @@
             this.cbEspecialidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEspecialidad.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbEspecialidad.FormattingEnabled = true;
-            this.cbEspecialidad.Location = new System.Drawing.Point(287, 5);
+            this.cbEspecialidad.Location = new System.Drawing.Point(286, 5);
             this.cbEspecialidad.Name = "cbEspecialidad";
             this.cbEspecialidad.Size = new System.Drawing.Size(154, 29);
             this.cbEspecialidad.TabIndex = 5;
@@ -373,7 +378,7 @@
             this.cbProyecto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbProyecto.Font = new System.Drawing.Font("Century Gothic", 14.25F);
             this.cbProyecto.FormattingEnabled = true;
-            this.cbProyecto.Location = new System.Drawing.Point(287, 46);
+            this.cbProyecto.Location = new System.Drawing.Point(286, 46);
             this.cbProyecto.Name = "cbProyecto";
             this.cbProyecto.Size = new System.Drawing.Size(154, 30);
             this.cbProyecto.TabIndex = 6;
@@ -384,11 +389,11 @@
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel7.Controls.Add(this.panel4, 0, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(970, 3);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(969, 3);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.35294F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(314, 178);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(315, 178);
             this.tableLayoutPanel7.TabIndex = 2;
             // 
             // panel4
@@ -399,7 +404,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(308, 172);
+            this.panel4.Size = new System.Drawing.Size(309, 172);
             this.panel4.TabIndex = 2;
             // 
             // btnLimpiar
@@ -504,6 +509,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(154, 31);
             this.txtNombre.TabIndex = 8;
+            this.tlpAyuda.SetToolTip(this.txtNombre, "Ingrese caracteres de texto");
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // lblNombre
@@ -752,14 +758,14 @@
             // 
             this.dgvPrimerAño.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPrimerAño.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(200)))), ((int)(((byte)(183)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPrimerAño.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(200)))), ((int)(((byte)(183)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPrimerAño.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvPrimerAño.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPrimerAño.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgvPrimerAño.Location = new System.Drawing.Point(0, 0);
@@ -804,6 +810,10 @@
             this.btnPrimerAño.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPrimerAño.UseVisualStyleBackColor = false;
             this.btnPrimerAño.Click += new System.EventHandler(this.btnPrimerAño_Click);
+            // 
+            // tlpAyuda
+            // 
+            this.tlpAyuda.ToolTipTitle = "Mensaje de ayuda";
             // 
             // frmInicio_Colaborador
             // 
@@ -898,5 +908,6 @@
         private System.Windows.Forms.DataGridView dgvPrimerAño;
         private System.Windows.Forms.Panel pnlEspacio1;
         private Clases.RedondearBoton btnPrimerAño;
+        private System.Windows.Forms.ToolTip tlpAyuda;
     }
 }
