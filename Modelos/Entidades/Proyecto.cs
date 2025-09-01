@@ -113,6 +113,14 @@ namespace Modelos.Entidades
 
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    MessageBox.Show("Búsqueda exitosa", "Éxito");
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron resultados ", "Sin resultados");
+                }
                 return dt;
             }
             catch (Exception ex)

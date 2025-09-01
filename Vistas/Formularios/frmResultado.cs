@@ -55,6 +55,11 @@ namespace Vistas.Formularios
             txtBuscar.Text = carnet;
             MostrarBusqueda();
             btnRegresar.Visible = false;
+            RedondearPanel(pnlBienvenida, 40);
+
+            dtpFechaBitacora.MinDate = DateTime.Today;
+            dtpFechaBitacora.MaxDate = DateTime.Today;
+            dtpFechaBitacora.Value = DateTime.Today;
         }
 
         private void MostrarBusqueda()
@@ -189,7 +194,7 @@ namespace Vistas.Formularios
                     }
                     else
                     {
-                        MessageBox.Show("No se pudo eliminar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("No se pudo editar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
@@ -303,17 +308,6 @@ namespace Vistas.Formularios
                 cbSeccion.Text = dgvEstudianteEncontrado.CurrentRow.Cells[5].Value.ToString();
                 cbProyecto.Text = dgvEstudianteEncontrado.CurrentRow.Cells[8].Value.ToString();
 
-                if (int.TryParse(dgvEstudianteEncontrado.CurrentRow.Cells[3]?.Value?.ToString(), out int especialidadId))
-                    cbEspecialidad.SelectedValue = especialidadId;
-
-                if (int.TryParse(dgvEstudianteEncontrado.CurrentRow.Cells[4]?.Value?.ToString(), out int nivelId))
-                    cbNivelAcademico.SelectedValue = nivelId;
-
-                if (int.TryParse(dgvEstudianteEncontrado.CurrentRow.Cells[5]?.Value?.ToString(), out int seccionId))
-                    cbSeccion.SelectedValue = seccionId;
-
-                if (int.TryParse(dgvEstudianteEncontrado.CurrentRow.Cells[8]?.Value?.ToString(), out int proyectoId))
-                    cbProyecto.SelectedValue = proyectoId;
 
                 lblEstado.Visible = true;
                 rbActivo.Visible = true;

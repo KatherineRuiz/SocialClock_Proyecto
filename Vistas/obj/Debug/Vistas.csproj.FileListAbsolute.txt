@@ -280,3 +280,13 @@ C:\Users\garbr\OneDrive\Escritorio\SocialClock_Proyecto\Vistas\bin\Debug\FontAwe
 C:\Users\garbr\OneDrive\Escritorio\SocialClock_Proyecto\Vistas\bin\Debug\Modelos.dll
 C:\Users\garbr\OneDrive\Escritorio\SocialClock_Proyecto\Vistas\bin\Debug\Modelos.pdb
 C:\Users\garbr\OneDrive\Escritorio\SocialClock_Proyecto\Vistas\obj\Debug\Vistas.csproj.Up2Date
+C:\Users\garbr\OneDrive\Escritorio\SocialClock_Proyecto\Vistas\bin\Debug\BCrypt.Net-Next.dll
+C:\Users\garbr\OneDrive\Escritorio\SocialClock_Proyecto\Vistas\bin\Debug\System.Buffers.dll
+C:\Users\garbr\OneDrive\Escritorio\SocialClock_Proyecto\Vistas\bin\Debug\System.Memory.dll
+C:\Users\garbr\OneDrive\Escritorio\SocialClock_Proyecto\Vistas\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\garbr\OneDrive\Escritorio\SocialClock_Proyecto\Vistas\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\garbr\OneDrive\Escritorio\SocialClock_Proyecto\Vistas\bin\Debug\BCrypt.Net-Next.xml
+C:\Users\garbr\OneDrive\Escritorio\SocialClock_Proyecto\Vistas\bin\Debug\System.Buffers.xml
+C:\Users\garbr\OneDrive\Escritorio\SocialClock_Proyecto\Vistas\bin\Debug\System.Memory.xml
+C:\Users\garbr\OneDrive\Escritorio\SocialClock_Proyecto\Vistas\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\garbr\OneDrive\Escritorio\SocialClock_Proyecto\Vistas\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml

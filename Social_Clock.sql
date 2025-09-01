@@ -54,8 +54,8 @@ Go
 
 Create table Usuario (
 idUsuario int identity (1,1) primary key,
-nombreUsuario varchar (30) unique not null,
-clave varchar (10) unique not null,
+nombreUsuario varchar (40) unique not null,
+clave varchar (100) unique not null,
 estadoUsuario bit default 0 not null,
 id_Rol int not null,
 constraint fkRol foreign key (id_Rol)
@@ -391,8 +391,8 @@ insert into Esp_Niv_Sec values
 
 
 insert into Usuario values
-('Ana Cecilia Ordoñez',544854,0,1),
-('Mirna Espinoza Anzora',277423,0,2);
+('ana_ordoñez@ricaldone.edu.sv',544854,0,1),
+('emerson_gonzales@ricaldone.edu.sv',277423,0,2);
 
 insert into Usuario values 
 ('Eliseo_Crisostomo',654697,0,2),
@@ -526,6 +526,7 @@ Seccion on Esp_Niv_Sec.id_Seccion = Seccion.idSeccion where NivelAcademico.idNiv
 Especialidad.nombreEspecialidad, NivelAcademico.nombreNivel, Seccion.nombreSeccion, nie, estadoEstudiante, Proyecto.nombreProyecto;
 
 select * from DatosEstudiantesPrimero
+
 
 SELECT 
     Estudiante.idEstudiante,

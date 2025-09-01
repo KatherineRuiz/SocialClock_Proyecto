@@ -39,7 +39,6 @@ namespace Vistas.Formularios
         }
 
 
-
         #region "Metodo para pintar formularios"
         //Creamos un atributo
         private Form activarForm = null;
@@ -64,12 +63,7 @@ namespace Vistas.Formularios
             formularioPintar.Show();
         }
         #endregion
-        private void btnInicio_Click(object sender, EventArgs e)
-        {
-            abrirForm(new frmInicio_Colaborador());
-        }
-
-
+        
         private void btnSalir_Click_1(object sender, EventArgs e)
         {
             frmSeleccionDeRol se = new frmSeleccionDeRol();
@@ -80,6 +74,11 @@ namespace Vistas.Formularios
         private void btnProyecto_Click(object sender, EventArgs e)
         {
             abrirForm(new frmProyectos_Colaborador());
+        }
+
+        private void btnInicio_Click_1(object sender, EventArgs e)
+        {
+            abrirForm(new frmInicio_Colaborador());
         }
     }
 }

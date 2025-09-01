@@ -30,6 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListaProyectos));
             this.tpListadoProyectos = new System.Windows.Forms.TabPage();
+            this.pnlListaProyectos = new System.Windows.Forms.Panel();
+            this.pnlListadoProyectos = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.lblListadoProyectos = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.btnBusqueda = new Vistas.Clases.RedondearBoton();
+            this.txtBuscarProyecto = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.pnlCabecera = new System.Windows.Forms.Panel();
@@ -49,14 +57,6 @@
             this.pnlContenido = new System.Windows.Forms.Panel();
             this.gbProyectos = new System.Windows.Forms.GroupBox();
             this.dgvContenido = new System.Windows.Forms.DataGridView();
-            this.tlpListaProyectos = new System.Windows.Forms.Panel();
-            this.pnlListadoProyectos = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.lblListadoProyectos = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.btnBusqueda = new Vistas.Clases.RedondearBoton();
-            this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.tcProyectos = new System.Windows.Forms.TabControl();
             this.tpEstudiantesProyecto = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -95,6 +95,11 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnRegresar = new FontAwesome.Sharp.IconButton();
             this.tpListadoProyectos.SuspendLayout();
+            this.pnlListaProyectos.SuspendLayout();
+            this.pnlListadoProyectos.SuspendLayout();
+            this.tableLayoutPanel10.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.pnlCabecera.SuspendLayout();
@@ -105,11 +110,6 @@
             this.pnlContenido.SuspendLayout();
             this.gbProyectos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContenido)).BeginInit();
-            this.tlpListaProyectos.SuspendLayout();
-            this.pnlListadoProyectos.SuspendLayout();
-            this.tableLayoutPanel10.SuspendLayout();
-            this.panel10.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.tcProyectos.SuspendLayout();
             this.tpEstudiantesProyecto.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -131,26 +131,129 @@
             // tpListadoProyectos
             // 
             this.tpListadoProyectos.BackColor = System.Drawing.Color.White;
+            this.tpListadoProyectos.Controls.Add(this.pnlListaProyectos);
             this.tpListadoProyectos.Controls.Add(this.panel4);
             this.tpListadoProyectos.Controls.Add(this.pnlContenido);
-            this.tpListadoProyectos.Controls.Add(this.tlpListaProyectos);
             this.tpListadoProyectos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tpListadoProyectos.Location = new System.Drawing.Point(4, 22);
             this.tpListadoProyectos.Margin = new System.Windows.Forms.Padding(2, 2, 10, 2);
             this.tpListadoProyectos.Name = "tpListadoProyectos";
             this.tpListadoProyectos.Padding = new System.Windows.Forms.Padding(2);
-            this.tpListadoProyectos.Size = new System.Drawing.Size(1092, 831);
+            this.tpListadoProyectos.Size = new System.Drawing.Size(1159, 831);
             this.tpListadoProyectos.TabIndex = 0;
             this.tpListadoProyectos.Text = "Listado de Proyectos";
+            // 
+            // pnlListaProyectos
+            // 
+            this.pnlListaProyectos.Controls.Add(this.pnlListadoProyectos);
+            this.pnlListaProyectos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlListaProyectos.Location = new System.Drawing.Point(2, 2);
+            this.pnlListaProyectos.Name = "pnlListaProyectos";
+            this.pnlListaProyectos.Padding = new System.Windows.Forms.Padding(20, 15, 20, 15);
+            this.pnlListaProyectos.Size = new System.Drawing.Size(1155, 138);
+            this.pnlListaProyectos.TabIndex = 5;
+            // 
+            // pnlListadoProyectos
+            // 
+            this.pnlListadoProyectos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(19)))), ((int)(((byte)(56)))));
+            this.pnlListadoProyectos.Controls.Add(this.tableLayoutPanel10);
+            this.pnlListadoProyectos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlListadoProyectos.Location = new System.Drawing.Point(20, 15);
+            this.pnlListadoProyectos.Margin = new System.Windows.Forms.Padding(20, 15, 20, 15);
+            this.pnlListadoProyectos.Name = "pnlListadoProyectos";
+            this.pnlListadoProyectos.Size = new System.Drawing.Size(1115, 108);
+            this.pnlListadoProyectos.TabIndex = 4;
+            // 
+            // tableLayoutPanel10
+            // 
+            this.tableLayoutPanel10.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel10.ColumnCount = 1;
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.Controls.Add(this.panel10, 0, 0);
+            this.tableLayoutPanel10.Controls.Add(this.panel6, 0, 1);
+            this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel10.Name = "tableLayoutPanel10";
+            this.tableLayoutPanel10.RowCount = 2;
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(1115, 108);
+            this.tableLayoutPanel10.TabIndex = 4;
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.lblListadoProyectos);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel10.Location = new System.Drawing.Point(3, 3);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(1109, 48);
+            this.panel10.TabIndex = 11;
+            // 
+            // lblListadoProyectos
+            // 
+            this.lblListadoProyectos.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblListadoProyectos.AutoSize = true;
+            this.lblListadoProyectos.BackColor = System.Drawing.Color.Transparent;
+            this.lblListadoProyectos.Font = new System.Drawing.Font("Perpetua Titling MT", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblListadoProyectos.ForeColor = System.Drawing.Color.White;
+            this.lblListadoProyectos.Location = new System.Drawing.Point(294, -1);
+            this.lblListadoProyectos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblListadoProyectos.Name = "lblListadoProyectos";
+            this.lblListadoProyectos.Size = new System.Drawing.Size(503, 44);
+            this.lblListadoProyectos.TabIndex = 2;
+            this.lblListadoProyectos.Text = "Listado de Proyectos";
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.btnBusqueda);
+            this.panel6.Controls.Add(this.txtBuscarProyecto);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(3, 57);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1109, 48);
+            this.panel6.TabIndex = 9;
+            // 
+            // btnBusqueda
+            // 
+            this.btnBusqueda.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(232)))), ((int)(((byte)(235)))));
+            this.btnBusqueda.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(232)))), ((int)(((byte)(235)))));
+            this.btnBusqueda.BorderRadius = 30;
+            this.btnBusqueda.BorderSize = 0;
+            this.btnBusqueda.FlatAppearance.BorderSize = 0;
+            this.btnBusqueda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBusqueda.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBusqueda.Location = new System.Drawing.Point(758, 2);
+            this.btnBusqueda.Name = "btnBusqueda";
+            this.btnBusqueda.Size = new System.Drawing.Size(141, 40);
+            this.btnBusqueda.TabIndex = 3;
+            this.btnBusqueda.Text = "Buscar";
+            this.btnBusqueda.UseVisualStyleBackColor = false;
+            this.btnBusqueda.Click += new System.EventHandler(this.btnBusqueda_Click);
+            // 
+            // txtBuscarProyecto
+            // 
+            this.txtBuscarProyecto.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBuscarProyecto.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscarProyecto.ForeColor = System.Drawing.Color.Silver;
+            this.txtBuscarProyecto.Location = new System.Drawing.Point(181, 11);
+            this.txtBuscarProyecto.MaxLength = 40;
+            this.txtBuscarProyecto.Multiline = true;
+            this.txtBuscarProyecto.Name = "txtBuscarProyecto";
+            this.txtBuscarProyecto.Size = new System.Drawing.Size(532, 26);
+            this.txtBuscarProyecto.TabIndex = 2;
+            this.txtBuscarProyecto.Text = "Ingrese el nombre del proyecto";
+            this.txtBuscarProyecto.Click += new System.EventHandler(this.txtBuscarProyecto_Click);
+            this.txtBuscarProyecto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarProyecto_KeyPress);
             // 
             // panel4
             // 
             this.panel4.Controls.Add(this.groupBox2);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(2, 142);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel4.Location = new System.Drawing.Point(2, 140);
             this.panel4.Name = "panel4";
             this.panel4.Padding = new System.Windows.Forms.Padding(20, 10, 20, 10);
-            this.panel4.Size = new System.Drawing.Size(1088, 167);
+            this.panel4.Size = new System.Drawing.Size(1155, 193);
             this.panel4.TabIndex = 4;
             // 
             // groupBox2
@@ -162,7 +265,7 @@
             this.groupBox2.Location = new System.Drawing.Point(20, 10);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(20, 10, 20, 10);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1048, 147);
+            this.groupBox2.Size = new System.Drawing.Size(1115, 173);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Creación de proyectos";
@@ -176,7 +279,7 @@
             this.pnlCabecera.Location = new System.Drawing.Point(3, 30);
             this.pnlCabecera.Margin = new System.Windows.Forms.Padding(2);
             this.pnlCabecera.Name = "pnlCabecera";
-            this.pnlCabecera.Size = new System.Drawing.Size(1042, 114);
+            this.pnlCabecera.Size = new System.Drawing.Size(1109, 140);
             this.pnlCabecera.TabIndex = 1;
             // 
             // tableLayoutPanel5
@@ -184,17 +287,17 @@
             this.tableLayoutPanel5.ColumnCount = 3;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.19226F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.80774F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 534F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 448F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 503F));
             this.tableLayoutPanel5.Controls.Add(this.panel5, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.lblEstado, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel7, 2, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 57);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 79);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(1042, 57);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(1109, 61);
             this.tableLayoutPanel5.TabIndex = 16;
             // 
             // panel5
@@ -202,9 +305,9 @@
             this.panel5.Controls.Add(this.rbnInactivo);
             this.panel5.Controls.Add(this.rbnActivo);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(237, 3);
+            this.panel5.Location = new System.Drawing.Point(308, 3);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(267, 51);
+            this.panel5.Size = new System.Drawing.Size(349, 55);
             this.panel5.TabIndex = 21;
             // 
             // rbnInactivo
@@ -213,21 +316,21 @@
             this.rbnInactivo.AutoSize = true;
             this.rbnInactivo.Font = new System.Drawing.Font("Century Gothic", 21.75F);
             this.rbnInactivo.ForeColor = System.Drawing.Color.Black;
-            this.rbnInactivo.Location = new System.Drawing.Point(96, 3);
+            this.rbnInactivo.Location = new System.Drawing.Point(166, 6);
             this.rbnInactivo.Margin = new System.Windows.Forms.Padding(2);
             this.rbnInactivo.Name = "rbnInactivo";
             this.rbnInactivo.Size = new System.Drawing.Size(151, 40);
             this.rbnInactivo.TabIndex = 18;
-            this.rbnInactivo.TabStop = true;
             this.rbnInactivo.Text = "Inactivo";
             this.rbnInactivo.UseVisualStyleBackColor = true;
             // 
             // rbnActivo
             // 
             this.rbnActivo.AutoSize = true;
+            this.rbnActivo.Checked = true;
             this.rbnActivo.Font = new System.Drawing.Font("Century Gothic", 21.75F);
             this.rbnActivo.ForeColor = System.Drawing.Color.Black;
-            this.rbnActivo.Location = new System.Drawing.Point(13, 3);
+            this.rbnActivo.Location = new System.Drawing.Point(2, 5);
             this.rbnActivo.Margin = new System.Windows.Forms.Padding(2);
             this.rbnActivo.Name = "rbnActivo";
             this.rbnActivo.Size = new System.Drawing.Size(126, 40);
@@ -242,7 +345,7 @@
             this.lblEstado.AutoSize = true;
             this.lblEstado.Font = new System.Drawing.Font("Century Gothic", 21.75F);
             this.lblEstado.ForeColor = System.Drawing.Color.Black;
-            this.lblEstado.Location = new System.Drawing.Point(58, 10);
+            this.lblEstado.Location = new System.Drawing.Point(93, 12);
             this.lblEstado.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(118, 36);
@@ -252,17 +355,17 @@
             // tableLayoutPanel7
             // 
             this.tableLayoutPanel7.ColumnCount = 2;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.43404F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.56596F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.0724F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.9276F));
             this.tableLayoutPanel7.Controls.Add(this.btnEliminarProyecto, 1, 0);
             this.tableLayoutPanel7.Controls.Add(this.btnLimpiar, 0, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(510, 3);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(663, 3);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(529, 51);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(443, 55);
             this.tableLayoutPanel7.TabIndex = 22;
             // 
             // btnEliminarProyecto
@@ -278,7 +381,7 @@
             this.btnEliminarProyecto.ForeColor = System.Drawing.Color.White;
             this.btnEliminarProyecto.Image = global::Vistas.Properties.Resources.eliminar;
             this.btnEliminarProyecto.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminarProyecto.Location = new System.Drawing.Point(319, 6);
+            this.btnEliminarProyecto.Location = new System.Drawing.Point(259, 8);
             this.btnEliminarProyecto.Name = "btnEliminarProyecto";
             this.btnEliminarProyecto.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnEliminarProyecto.Size = new System.Drawing.Size(163, 38);
@@ -300,7 +403,7 @@
             this.btnLimpiar.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.Color.White;
             this.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLimpiar.Location = new System.Drawing.Point(53, 6);
+            this.btnLimpiar.Location = new System.Drawing.Point(36, 8);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnLimpiar.Size = new System.Drawing.Size(166, 38);
@@ -312,10 +415,10 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.34434F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.65566F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 270F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 263F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.12794F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.87206F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 242F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 206F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 240F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
             this.tableLayoutPanel1.Controls.Add(this.btnAgregar, 2, 0);
@@ -328,8 +431,8 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 57F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1042, 57);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 79F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1109, 79);
             this.tableLayoutPanel1.TabIndex = 15;
             // 
             // btnAgregar
@@ -343,7 +446,7 @@
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
-            this.btnAgregar.Location = new System.Drawing.Point(539, 5);
+            this.btnAgregar.Location = new System.Drawing.Point(677, 16);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(5);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(208, 47);
@@ -355,11 +458,13 @@
             // txtNombreProyecto
             // 
             this.txtNombreProyecto.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtNombreProyecto.Location = new System.Drawing.Point(238, 12);
+            this.txtNombreProyecto.Location = new System.Drawing.Point(307, 23);
+            this.txtNombreProyecto.MaxLength = 40;
             this.txtNombreProyecto.Multiline = true;
             this.txtNombreProyecto.Name = "txtNombreProyecto";
-            this.txtNombreProyecto.Size = new System.Drawing.Size(267, 32);
+            this.txtNombreProyecto.Size = new System.Drawing.Size(314, 32);
             this.txtNombreProyecto.TabIndex = 7;
+            this.txtNombreProyecto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreProyecto_KeyPress_1);
             // 
             // btnEditar
             // 
@@ -374,7 +479,7 @@
             this.btnEditar.ForeColor = System.Drawing.Color.White;
             this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEditar.Location = new System.Drawing.Point(828, 8);
+            this.btnEditar.Location = new System.Drawing.Point(924, 19);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnEditar.Size = new System.Drawing.Size(163, 41);
@@ -390,10 +495,10 @@
             this.lblNombreProyecto.AutoSize = true;
             this.lblNombreProyecto.Font = new System.Drawing.Font("Century Gothic", 21.75F);
             this.lblNombreProyecto.ForeColor = System.Drawing.Color.Black;
-            this.lblNombreProyecto.Location = new System.Drawing.Point(21, 0);
+            this.lblNombreProyecto.Location = new System.Drawing.Point(56, 3);
             this.lblNombreProyecto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNombreProyecto.Name = "lblNombreProyecto";
-            this.lblNombreProyecto.Size = new System.Drawing.Size(192, 57);
+            this.lblNombreProyecto.Size = new System.Drawing.Size(192, 72);
             this.lblNombreProyecto.TabIndex = 0;
             this.lblNombreProyecto.Text = "Nombre del proyecto:";
             // 
@@ -401,11 +506,11 @@
             // 
             this.pnlContenido.Controls.Add(this.gbProyectos);
             this.pnlContenido.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlContenido.Location = new System.Drawing.Point(2, 309);
+            this.pnlContenido.Location = new System.Drawing.Point(2, 333);
             this.pnlContenido.Margin = new System.Windows.Forms.Padding(2);
             this.pnlContenido.Name = "pnlContenido";
             this.pnlContenido.Padding = new System.Windows.Forms.Padding(20, 10, 20, 10);
-            this.pnlContenido.Size = new System.Drawing.Size(1088, 520);
+            this.pnlContenido.Size = new System.Drawing.Size(1155, 496);
             this.pnlContenido.TabIndex = 3;
             // 
             // gbProyectos
@@ -417,7 +522,7 @@
             this.gbProyectos.Location = new System.Drawing.Point(20, 10);
             this.gbProyectos.Margin = new System.Windows.Forms.Padding(30, 10, 30, 10);
             this.gbProyectos.Name = "gbProyectos";
-            this.gbProyectos.Size = new System.Drawing.Size(1048, 500);
+            this.gbProyectos.Size = new System.Drawing.Size(1115, 476);
             this.gbProyectos.TabIndex = 2;
             this.gbProyectos.TabStop = false;
             this.gbProyectos.Text = "Proyectos";
@@ -429,118 +534,17 @@
             this.dgvContenido.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvContenido.Location = new System.Drawing.Point(3, 30);
             this.dgvContenido.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvContenido.MultiSelect = false;
             this.dgvContenido.Name = "dgvContenido";
             this.dgvContenido.ReadOnly = true;
             this.dgvContenido.RowHeadersVisible = false;
             this.dgvContenido.RowHeadersWidth = 51;
             this.dgvContenido.RowTemplate.Height = 24;
             this.dgvContenido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvContenido.Size = new System.Drawing.Size(1042, 467);
+            this.dgvContenido.Size = new System.Drawing.Size(1109, 443);
             this.dgvContenido.TabIndex = 14;
             this.dgvContenido.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContenido_CellClick);
             this.dgvContenido.DoubleClick += new System.EventHandler(this.dgvContenido_DoubleClick);
-            // 
-            // tlpListaProyectos
-            // 
-            this.tlpListaProyectos.BackColor = System.Drawing.Color.Transparent;
-            this.tlpListaProyectos.Controls.Add(this.pnlListadoProyectos);
-            this.tlpListaProyectos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tlpListaProyectos.Location = new System.Drawing.Point(2, 2);
-            this.tlpListaProyectos.Margin = new System.Windows.Forms.Padding(2);
-            this.tlpListaProyectos.Name = "tlpListaProyectos";
-            this.tlpListaProyectos.Padding = new System.Windows.Forms.Padding(20);
-            this.tlpListaProyectos.Size = new System.Drawing.Size(1088, 140);
-            this.tlpListaProyectos.TabIndex = 2;
-            // 
-            // pnlListadoProyectos
-            // 
-            this.pnlListadoProyectos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(19)))), ((int)(((byte)(56)))));
-            this.pnlListadoProyectos.Controls.Add(this.tableLayoutPanel10);
-            this.pnlListadoProyectos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlListadoProyectos.Location = new System.Drawing.Point(20, 20);
-            this.pnlListadoProyectos.Margin = new System.Windows.Forms.Padding(20, 15, 20, 15);
-            this.pnlListadoProyectos.Name = "pnlListadoProyectos";
-            this.pnlListadoProyectos.Size = new System.Drawing.Size(1048, 100);
-            this.pnlListadoProyectos.TabIndex = 16;
-            // 
-            // tableLayoutPanel10
-            // 
-            this.tableLayoutPanel10.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel10.ColumnCount = 1;
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel10.Controls.Add(this.panel10, 0, 0);
-            this.tableLayoutPanel10.Controls.Add(this.panel6, 0, 1);
-            this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel10.Name = "tableLayoutPanel10";
-            this.tableLayoutPanel10.RowCount = 2;
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(1048, 100);
-            this.tableLayoutPanel10.TabIndex = 3;
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.lblListadoProyectos);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(3, 3);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(1042, 44);
-            this.panel10.TabIndex = 11;
-            // 
-            // lblListadoProyectos
-            // 
-            this.lblListadoProyectos.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblListadoProyectos.AutoSize = true;
-            this.lblListadoProyectos.BackColor = System.Drawing.Color.Transparent;
-            this.lblListadoProyectos.Font = new System.Drawing.Font("Perpetua Titling MT", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblListadoProyectos.ForeColor = System.Drawing.Color.White;
-            this.lblListadoProyectos.Location = new System.Drawing.Point(261, -3);
-            this.lblListadoProyectos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblListadoProyectos.Name = "lblListadoProyectos";
-            this.lblListadoProyectos.Size = new System.Drawing.Size(503, 44);
-            this.lblListadoProyectos.TabIndex = 2;
-            this.lblListadoProyectos.Text = "Listado de Proyectos";
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.btnBusqueda);
-            this.panel6.Controls.Add(this.txtBusqueda);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(3, 53);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1042, 44);
-            this.panel6.TabIndex = 9;
-            // 
-            // btnBusqueda
-            // 
-            this.btnBusqueda.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(232)))), ((int)(((byte)(235)))));
-            this.btnBusqueda.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(232)))), ((int)(((byte)(235)))));
-            this.btnBusqueda.BorderRadius = 30;
-            this.btnBusqueda.BorderSize = 0;
-            this.btnBusqueda.FlatAppearance.BorderSize = 0;
-            this.btnBusqueda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBusqueda.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBusqueda.Location = new System.Drawing.Point(725, 0);
-            this.btnBusqueda.Name = "btnBusqueda";
-            this.btnBusqueda.Size = new System.Drawing.Size(141, 40);
-            this.btnBusqueda.TabIndex = 3;
-            this.btnBusqueda.Text = "Buscar";
-            this.btnBusqueda.UseVisualStyleBackColor = false;
-            this.btnBusqueda.Click += new System.EventHandler(this.btnBusqueda_Click);
-            // 
-            // txtBusqueda
-            // 
-            this.txtBusqueda.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtBusqueda.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBusqueda.ForeColor = System.Drawing.Color.Silver;
-            this.txtBusqueda.Location = new System.Drawing.Point(148, 9);
-            this.txtBusqueda.Multiline = true;
-            this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(532, 26);
-            this.txtBusqueda.TabIndex = 2;
-            this.txtBusqueda.Text = "Ingrese el nombre del proyecto";
             // 
             // tcProyectos
             // 
@@ -551,7 +555,7 @@
             this.tcProyectos.Margin = new System.Windows.Forms.Padding(2);
             this.tcProyectos.Name = "tcProyectos";
             this.tcProyectos.SelectedIndex = 0;
-            this.tcProyectos.Size = new System.Drawing.Size(1100, 857);
+            this.tcProyectos.Size = new System.Drawing.Size(1167, 857);
             this.tcProyectos.TabIndex = 0;
             // 
             // tpEstudiantesProyecto
@@ -606,9 +610,11 @@
             this.dgvBitacoraEstudiantes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBitacoraEstudiantes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvBitacoraEstudiantes.Location = new System.Drawing.Point(3, 30);
+            this.dgvBitacoraEstudiantes.MultiSelect = false;
             this.dgvBitacoraEstudiantes.Name = "dgvBitacoraEstudiantes";
             this.dgvBitacoraEstudiantes.ReadOnly = true;
             this.dgvBitacoraEstudiantes.RowHeadersWidth = 51;
+            this.dgvBitacoraEstudiantes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBitacoraEstudiantes.Size = new System.Drawing.Size(1022, 375);
             this.dgvBitacoraEstudiantes.TabIndex = 1;
             this.dgvBitacoraEstudiantes.DoubleClick += new System.EventHandler(this.dgvBitacoraEstudiantes_DoubleClick);
@@ -714,6 +720,7 @@
             this.txtActvidad.Size = new System.Drawing.Size(563, 61);
             this.txtActvidad.TabIndex = 12;
             this.txtActvidad.Text = "         ";
+            this.txtActvidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtActvidad_KeyPress);
             // 
             // txtNumEstudiante
             // 
@@ -722,7 +729,7 @@
             this.txtNumEstudiante.Location = new System.Drawing.Point(200, 10);
             this.txtNumEstudiante.Name = "txtNumEstudiante";
             this.txtNumEstudiante.ReadOnly = true;
-            this.txtNumEstudiante.Size = new System.Drawing.Size(332, 31);
+            this.txtNumEstudiante.Size = new System.Drawing.Size(159, 31);
             this.txtNumEstudiante.TabIndex = 11;
             this.txtNumEstudiante.Text = "         ";
             // 
@@ -755,7 +762,7 @@
             this.tableLayoutPanel4.ColumnCount = 3;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.85619F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.14381F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 290F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 292F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 348F));
             this.tableLayoutPanel4.Controls.Add(this.dtpFechaBitacora, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.txtHoras, 0, 0);
@@ -772,7 +779,7 @@
             // 
             this.dtpFechaBitacora.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpFechaBitacora.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaBitacora.Location = new System.Drawing.Point(276, 13);
+            this.dtpFechaBitacora.Location = new System.Drawing.Point(275, 13);
             this.dtpFechaBitacora.MinDate = new System.DateTime(2025, 8, 9, 16, 29, 5, 0);
             this.dtpFechaBitacora.Name = "dtpFechaBitacora";
             this.dtpFechaBitacora.Size = new System.Drawing.Size(282, 31);
@@ -786,9 +793,10 @@
             this.txtHoras.Location = new System.Drawing.Point(3, 13);
             this.txtHoras.Mask = "000";
             this.txtHoras.Name = "txtHoras";
-            this.txtHoras.Size = new System.Drawing.Size(149, 31);
+            this.txtHoras.Size = new System.Drawing.Size(148, 31);
             this.txtHoras.TabIndex = 12;
             this.txtHoras.ValidatingType = typeof(int);
+            this.txtHoras.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtHoras_KeyPress);
             // 
             // lblFecha
             // 
@@ -796,7 +804,7 @@
             this.lblFecha.AutoSize = true;
             this.lblFecha.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFecha.ForeColor = System.Drawing.Color.Black;
-            this.lblFecha.Location = new System.Drawing.Point(161, 0);
+            this.lblFecha.Location = new System.Drawing.Point(159, 0);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(105, 57);
             this.lblFecha.TabIndex = 9;
@@ -1059,11 +1067,13 @@
             this.txtBuscar.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscar.ForeColor = System.Drawing.Color.Silver;
             this.txtBuscar.Location = new System.Drawing.Point(122, 10);
+            this.txtBuscar.MaxLength = 8;
             this.txtBuscar.Multiline = true;
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(532, 26);
             this.txtBuscar.TabIndex = 2;
             this.txtBuscar.Text = "Ingrese el carnet del estudiante";
+            this.txtBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscar_KeyPress);
             // 
             // btnRegresar
             // 
@@ -1077,7 +1087,7 @@
             this.btnRegresar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnRegresar.Location = new System.Drawing.Point(0, 857);
             this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(1100, 0);
+            this.btnRegresar.Size = new System.Drawing.Size(1167, 0);
             this.btnRegresar.TabIndex = 1;
             this.btnRegresar.UseVisualStyleBackColor = false;
             // 
@@ -1088,7 +1098,7 @@
             this.AutoScroll = true;
             this.AutoScrollMinSize = new System.Drawing.Size(1100, 788);
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1096, 677);
+            this.ClientSize = new System.Drawing.Size(1184, 677);
             this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.tcProyectos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -1099,6 +1109,13 @@
             this.Text = "frmListaProyectos";
             this.Load += new System.EventHandler(this.frmListaProyectos_Load);
             this.tpListadoProyectos.ResumeLayout(false);
+            this.pnlListaProyectos.ResumeLayout(false);
+            this.pnlListadoProyectos.ResumeLayout(false);
+            this.tableLayoutPanel10.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.pnlCabecera.ResumeLayout(false);
@@ -1112,13 +1129,6 @@
             this.pnlContenido.ResumeLayout(false);
             this.gbProyectos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvContenido)).EndInit();
-            this.tlpListaProyectos.ResumeLayout(false);
-            this.pnlListadoProyectos.ResumeLayout(false);
-            this.tableLayoutPanel10.ResumeLayout(false);
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.tcProyectos.ResumeLayout(false);
             this.tpEstudiantesProyecto.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -1148,7 +1158,6 @@
         private System.Windows.Forms.TabPage tpListadoProyectos;
         private System.Windows.Forms.Panel pnlContenido;
         private System.Windows.Forms.TabControl tcProyectos;
-        private System.Windows.Forms.Panel tlpListaProyectos;
         private System.Windows.Forms.TabPage tpEstudiantesProyecto;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel pnlEncabezado;
@@ -1172,7 +1181,6 @@
         private Clases.RedondearBoton btnRegistrar;
         private System.Windows.Forms.GroupBox gbBitacoraEstudiantes;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel pnlListadoProyectos;
         private System.Windows.Forms.GroupBox gbProyectos;
         private System.Windows.Forms.DataGridView dgvContenido;
         private System.Windows.Forms.DataGridView dgvBitacoraEstudiantes;
@@ -1189,10 +1197,6 @@
         private System.Windows.Forms.RadioButton rbnActivo;
         private System.Windows.Forms.Label lblEstado;
         private Clases.RedondearBoton btnLimpiar;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
-        private System.Windows.Forms.Panel panel6;
-        private Clases.RedondearBoton btnBusqueda;
-        private System.Windows.Forms.TextBox txtBusqueda;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private Clases.RedondearBoton btnEliminarProyecto;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
@@ -1201,8 +1205,6 @@
         private System.Windows.Forms.TextBox txtBuscar;
         private Clases.RedondearBoton btnEliminarBitacora;
         private FontAwesome.Sharp.IconButton btnRegresar;
-        private System.Windows.Forms.Label lblListadoProyectos;
-        private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel9;
         private FontAwesome.Sharp.IconButton btnRegresarEstudiantes;
@@ -1210,5 +1212,13 @@
         private System.Windows.Forms.MaskedTextBox txtHoras;
         private System.Windows.Forms.TextBox txtActvidad;
         private System.Windows.Forms.DateTimePicker dtpFechaBitacora;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Label lblListadoProyectos;
+        private System.Windows.Forms.Panel panel6;
+        private Clases.RedondearBoton btnBusqueda;
+        private System.Windows.Forms.TextBox txtBuscarProyecto;
+        private System.Windows.Forms.Panel pnlListaProyectos;
+        private System.Windows.Forms.Panel pnlListadoProyectos;
     }
 }

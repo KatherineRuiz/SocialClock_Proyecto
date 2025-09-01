@@ -26,11 +26,13 @@ namespace Vistas.Formularios
             MostrarEstudiantePrimerAño();
             MostrarEstudianteSegundoAño();
             MostrarEstudianteTercerAño();
+
         }
 
         private void frmInicio_Colaborador_Load(object sender, EventArgs e)
         {
-
+            RedondearPanel(pnlBienvenida, 40);
+            ocultarSubTabla(false);
         }
         //Metodo para redondear las esquinas de los paneles
         private void RedondearPanel(Panel panel, int radio)
@@ -78,7 +80,7 @@ namespace Vistas.Formularios
             MostrarEstudiantePrimerAño();
         }
 
-        private void btnSeundoAño_Click_1(object sender, EventArgs e)
+        private void btnSeundoAño_Click(object sender, EventArgs e)
         {
             pnlPrimerAño.Visible = false;
             pnlEspacio1.Visible = false;
@@ -94,8 +96,6 @@ namespace Vistas.Formularios
                 ocultarSubTabla(false);
             }
         }
-
-
         private void btnTercerAño_Click(object sender, EventArgs e)
         {
             pnlPrimerAño.Visible = false;
@@ -113,9 +113,32 @@ namespace Vistas.Formularios
             }
         }
 
+#endregion
+
+        #region "Metodo para pintar formularios"
+        //Creamos un atributo
+        private Form activarForm = null;
+
+        private void abrirForm(Form formularioPintar)
+        {
+            if (activarForm != null)
+            //Si existe un formulario abierto, se cerrará
+            {
+                activarForm.Close();
+            }
+            //Le damos todos los permisos que tiene la clase form
+            activarForm = formularioPintar;
+            //Convertimos a un hijo de tipo de form
+            formularioPintar.TopLevel = false;
+            //Quitamos los bordes
+            formularioPintar.FormBorderStyle = FormBorderStyle.None;
+            formularioPintar.Dock = DockStyle.Fill;
+
+            pnlBusqueda.Controls.Add(formularioPintar);
+            formularioPintar.BringToFront();
+            formularioPintar.Show();
+        }
         #endregion
-
-
 
         #region Metodos para mostrar las opciones disponibles de los combo box
         private void mostrarNivelAcademico()
@@ -174,25 +197,70 @@ namespace Vistas.Formularios
         }
 
 
+        private void btnBuscar_Click_1(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtBuscar.Text))
+            {
+                string carnet = txtBuscar.Text;
+
+                Estudiante es = new Estudiante();
+
+                if (es.CarnetEstudiante(carnet) == true)
+                {
+                    tlpInicio.Visible = false;
+                    this.AutoScrollMinSize = new Size(0, 0);
+                    abrirForm(new frmResultado_Colaborador(carnet));
+
+                }
+                else
+                {
+                    MessageBox.Show("Error en la búsqueda", "Advertencia");
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Asegurese de ingresar un valor en el campo de búsqueda", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+        }
+
         private void btnInscribir_Click(object sender, EventArgs e)
         {
-            //Creamos un objeto Estudiante
-            Estudiante es = new Estudiante();
-            es.Carnet = txtCarnet.Text;
-            es.NombreEstudiante = txtNombre.Text;
-            es.Nie = txtNie.Text;
-            es.Proyecto = Convert.ToInt32(cbProyecto.SelectedValue);
-            es.Especialidad = Convert.ToInt32(cbEspecialidad.SelectedValue);
-            es.NivelAcademico = Convert.ToInt32(cbNivelAcademico.SelectedValue);
-            es.Seccion = Convert.ToInt32(cbSeccion.SelectedValue);
+            if (cbEspecialidad.SelectedIndex != -1 && cbNivelAcademico.SelectedIndex != -1 && cbSeccion.SelectedIndex != -1 && cbProyecto.SelectedIndex != -1 &&
+                !string.IsNullOrWhiteSpace(txtCarnet.Text) && !string.IsNullOrWhiteSpace(txtNombre.Text))
+            {
+                //Creamos un objeto Estudiante
+                Estudiante es = new Estudiante();
+                es.Carnet = txtCarnet.Text;
+                es.NombreEstudiante = txtNombre.Text;
+                es.Nie = txtNie.Text;
+                es.Proyecto = Convert.ToInt32(cbProyecto.SelectedValue);
+                es.Especialidad = Convert.ToInt32(cbEspecialidad.SelectedValue);
+                es.NivelAcademico = Convert.ToInt32(cbNivelAcademico.SelectedValue);
+                es.Seccion = Convert.ToInt32(cbSeccion.SelectedValue);
+                es.Estado = false;
+            
+                try
+                {
+                    es.InsertarEstudiantes();
 
-            es.Estado = false;
+                    MostrarEstudiantePrimerAño();
+                    MostrarEstudianteSegundoAño();
+                    MostrarEstudianteTercerAño();
+                    MessageBox.Show("Exelente. Datos registrados", "Inscripción exitosa");
+                }
+                catch (Exception)
+                {
 
-
-            es.InsertarEstudiantes();
-            MostrarEstudiantePrimerAño();
-            MostrarEstudianteSegundoAño();
-            MostrarEstudianteTercerAño();
+                    MessageBox.Show("Error al insgresar datos", "Advertencia");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Todos los campos, excepto <Nie>, necesitan ingresarse obligatoriamente ", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+               
+            }
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -202,6 +270,155 @@ namespace Vistas.Formularios
             txtNie.Text = "";
         }
 
-        
+        private void btnEditarPrimero_Click(object sender, EventArgs e)
+        {
+            if (cbEspecialidad.SelectedIndex != -1 && cbNivelAcademico.SelectedIndex != -1 && cbSeccion.SelectedIndex != -1 && cbProyecto.SelectedIndex != -1 &&
+                !string.IsNullOrWhiteSpace(txtCarnet.Text) && !string.IsNullOrWhiteSpace(txtNombre.Text))
+            {
+
+                Estudiante es = new Estudiante();
+                es.Carnet = txtCarnet.Text;
+                es.NombreEstudiante = txtNombre.Text;
+                es.Nie = txtNie.Text;
+                es.Especialidad = Convert.ToInt32(cbEspecialidad.SelectedValue);
+                es.NivelAcademico = Convert.ToInt32(cbNivelAcademico.SelectedValue);
+                es.Seccion = Convert.ToInt32(cbSeccion.SelectedValue);
+                es.Proyecto = Convert.ToInt32(cbProyecto.SelectedValue);
+                es.Estado = false;
+
+                string registroEditar = "";
+
+                if (dgvPrimerAño.Visible && dgvPrimerAño.CurrentRow != null)
+                {
+                    es.Id = int.Parse(dgvPrimerAño.CurrentRow.Cells[0].Value.ToString());
+                    registroEditar = dgvPrimerAño.CurrentRow.Cells[2].Value?.ToString();
+                }
+
+                else if (dgvSegundoAño.Visible && dgvSegundoAño.CurrentRow != null)
+                {
+                    es.Id = int.Parse(dgvSegundoAño.CurrentRow.Cells[0].Value.ToString());
+                    registroEditar = dgvSegundoAño.CurrentRow.Cells[2].Value?.ToString();
+                }
+                else if (dgvTercerAño.Visible && dgvTercerAño.CurrentRow != null)
+                {
+                    es.Id = int.Parse(dgvTercerAño.CurrentRow.Cells[0].Value.ToString());
+                    registroEditar = dgvTercerAño.CurrentRow.Cells[2].Value?.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Asegúrese de seleccionar un registro", "Advertencia");
+                    return;
+                }
+                DialogResult respuesta = MessageBox.Show("¿Quieres editar este registro?\n" + registroEditar,
+                                                         "Editar registro", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (respuesta == DialogResult.Yes)
+                {
+                    if (es.ActualizarEstudiantes() == true)
+                    {
+                        MostrarEstudiantePrimerAño();
+                        MostrarEstudianteSegundoAño();
+                        MostrarEstudianteTercerAño();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo editar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Todos los campos, excepto <Nie>, necesitan ingresarse obligatoriamente ", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+
+        #region Metodos para cargar datos que se actualizaran
+        private void dgvPrimerAño_DoubleClick(object sender, EventArgs e)
+        {
+            txtCarnet.Text = dgvPrimerAño.CurrentRow.Cells[1].Value.ToString();
+            txtNombre.Text = dgvPrimerAño.CurrentRow.Cells[2].Value.ToString();
+            cbEspecialidad.Text = dgvPrimerAño.CurrentRow.Cells[3].Value.ToString();
+            cbNivelAcademico.Text = dgvPrimerAño.CurrentRow.Cells[4].Value.ToString();
+            cbSeccion.Text = dgvPrimerAño.CurrentRow.Cells[5].Value.ToString();
+            txtNie.Text = dgvPrimerAño.CurrentRow.Cells[6].Value.ToString();
+            cbProyecto.Text = dgvPrimerAño.CurrentRow.Cells[8].Value.ToString();
+
+        }
+
+        private void dgvSegundoAño_DoubleClick(object sender, EventArgs e)
+        {
+            txtCarnet.Text = dgvSegundoAño.CurrentRow.Cells[1].Value.ToString();
+            txtNombre.Text = dgvSegundoAño.CurrentRow.Cells[2].Value.ToString();
+            txtNie.Text = dgvSegundoAño.CurrentRow.Cells[6].Value.ToString();
+            cbEspecialidad.Text = dgvSegundoAño.CurrentRow.Cells[3].Value.ToString();
+            cbNivelAcademico.Text = dgvSegundoAño.CurrentRow.Cells[4].Value.ToString();
+            cbSeccion.Text = dgvSegundoAño.CurrentRow.Cells[5].Value.ToString();
+            cbProyecto.Text = dgvSegundoAño.CurrentRow.Cells[8].Value.ToString();
+
+        }
+
+        private void dgvTercerAño_DoubleClick(object sender, EventArgs e)
+        {
+            txtCarnet.Text = dgvTercerAño.CurrentRow.Cells[1].Value.ToString();
+            txtNombre.Text = dgvTercerAño.CurrentRow.Cells[2].Value.ToString();
+            txtNie.Text = dgvTercerAño.CurrentRow.Cells[6].Value.ToString();
+            cbEspecialidad.Text = dgvTercerAño.CurrentRow.Cells[3].Value.ToString();
+            cbNivelAcademico.Text = dgvTercerAño.CurrentRow.Cells[4].Value.ToString();
+            cbSeccion.Text = dgvTercerAño.CurrentRow.Cells[5].Value.ToString();
+            cbProyecto.Text = dgvTercerAño.CurrentRow.Cells[8].Value.ToString();
+        }
+        #endregion
+
+        #region Validaciones
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
+            {
+                MessageBox.Show("Solo permite letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo permite números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtCarnet_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo permite números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtNie_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo permite números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Handled = true;
+                return;
+            }
+        }
+        #endregion
+
+        private void txtBuscar_Click(object sender, EventArgs e)
+        {
+            txtBuscar.Text = "";
+        }
     }
 }

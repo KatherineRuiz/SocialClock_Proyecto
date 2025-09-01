@@ -147,6 +147,7 @@
             // 
             this.btnColaborador.BackColor = System.Drawing.Color.Transparent;
             this.btnColaborador.FlatAppearance.BorderSize = 0;
+            this.btnColaborador.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnColaborador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnColaborador.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnColaborador.ForeColor = System.Drawing.Color.Transparent;
@@ -165,6 +166,7 @@
             // 
             this.btnAdministrador.BackColor = System.Drawing.Color.Transparent;
             this.btnAdministrador.FlatAppearance.BorderSize = 0;
+            this.btnAdministrador.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnAdministrador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdministrador.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdministrador.ForeColor = System.Drawing.Color.Transparent;
@@ -187,7 +189,8 @@
             this.ClientSize = new System.Drawing.Size(946, 544);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.MaximumSize = new System.Drawing.Size(964, 589);
+            this.MaximumSize = new System.Drawing.Size(962, 583);
+            this.MinimumSize = new System.Drawing.Size(962, 583);
             this.Name = "frmSeleccionDeRol";
             this.Text = "frmSeleccionDeRol";
             this.tableLayoutPanel1.ResumeLayout(false);

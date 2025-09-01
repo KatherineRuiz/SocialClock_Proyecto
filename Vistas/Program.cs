@@ -18,7 +18,7 @@ namespace Vistas
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmSocialClock());
+            Application.Run(new frmSeleccionDeRol());
            
         }
     }

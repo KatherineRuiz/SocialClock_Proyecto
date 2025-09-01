@@ -18,12 +18,18 @@ namespace Vistas.Formularios
     public partial class frmProyectos_Colaborador : Form
     {
         int proyectoseleccionado;
+        string nombreProyecto;
         public frmProyectos_Colaborador()
         {
             InitializeComponent();
             MostrarProyecto();
+           
             tpEstudiantesProyecto.Visible = false;
             btnRegresarEstudiantes.Visible = false;
+
+            dtpFechaBitacora.MinDate = DateTime.Today;
+            dtpFechaBitacora.MaxDate = DateTime.Today;
+            dtpFechaBitacora.Value = DateTime.Today;
         }
 
         private void RedondearPanel(Panel panel, int radio)
@@ -56,19 +62,23 @@ namespace Vistas.Formularios
         private void frmProyectos_Colaborador_Load(object sender, EventArgs e)
         {
             MostrarProyecto();
-          
+            RedondearPanel(pnlEstudiantesProyecto, 40);
+            RedondearPanel(pnlListadoProyectos, 40);
+
+            dtpFechaBitacora.MinDate = DateTime.Today;
+            dtpFechaBitacora.MaxDate = DateTime.Today;
+            dtpFechaBitacora.Value = DateTime.Today;
         }
        
 
-
         private void btnBusqueda_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtBuscar.Text))
+            if (!string.IsNullOrWhiteSpace(txtBuscarProyecto.Text))
             {
                 try
                 {
                     dgvContenido.DataSource = null;
-                    dgvContenido.DataSource = Proyecto.BuscarProyecto(txtBuscar.Text);
+                    dgvContenido.DataSource = Proyecto.BuscarProyecto(txtBuscarProyecto.Text);
                 }
                 catch (Exception)
                 {
@@ -91,6 +101,7 @@ namespace Vistas.Formularios
                 dgvBitacoraEstudiantes.DataSource = null;
                 dgvBitacoraEstudiantes.DataSource = Estudiante.CargarEstudianteProyecto(Convert.ToInt32(dgvContenido.CurrentRow.Cells[0].Value.ToString()));
                 proyectoseleccionado = Convert.ToInt32(dgvContenido.CurrentRow.Cells[0].Value.ToString());
+                nombreProyecto = dgvContenido.CurrentRow.Cells[1].Value.ToString();
             }
             catch (Exception ex)
             {
@@ -242,6 +253,85 @@ namespace Vistas.Formularios
                 MessageBox.Show("Error: " + ex.Message);
                 return;
             }
+        }
+
+        private void txtBuscar_Click(object sender, EventArgs e)
+        {
+            txtBuscar.Text = "";
+        }
+
+        private void btnBuscarEstudiante_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtBuscar.Text))
+            {
+                try
+                {
+                    dgvBitacoraEstudiantes.DataSource = null;
+                    dgvBitacoraEstudiantes.DataSource = Estudiante.BuscarEstudianteProyecto(txtBuscar.Text, nombreProyecto);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Asegurese de ingresar un valor en el campo de búsqueda", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        #region Validaciones 
+        private void txtHoras_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo permite números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtActvidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
+            {
+                MessageBox.Show("Solo permite letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo permite números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtBuscarProyecto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
+            {
+                MessageBox.Show("Solo permite letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Handled = true;
+                return;
+            }
+        }
+        #endregion
+
+        private void txtBuscarProyecto_Click(object sender, EventArgs e)
+        {
+            txtBuscarProyecto.Text = "";
+        }
+
+        private void btnRegresarEstudiantes_Click(object sender, EventArgs e)
+        {
+            dgvBitacoraEstudiantes.DataSource = null;
+            dgvBitacoraEstudiantes.DataSource = Estudiante.CargarEstudianteProyecto(proyectoseleccionado);
+            btnRegresarEstudiantes.Visible = false;
         }
     }
 }

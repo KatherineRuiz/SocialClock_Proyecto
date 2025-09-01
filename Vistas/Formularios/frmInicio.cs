@@ -289,6 +289,7 @@ namespace Vistas.Formularios
         {
             RedondearPanel(pnlBienvenida, 40);
             ocultarSubTabla(false);
+
         }
 
         #region Metodos para cargar datos que se actualizaran
@@ -301,17 +302,7 @@ namespace Vistas.Formularios
             cbSeccion.Text = dgvPrimerAño.CurrentRow.Cells[5].Value.ToString();
             txtNie.Text = dgvPrimerAño.CurrentRow.Cells[6].Value.ToString();
             cbProyecto.Text = dgvPrimerAño.CurrentRow.Cells[8].Value.ToString();
-            if (int.TryParse(dgvPrimerAño.CurrentRow.Cells[3]?.Value?.ToString(), out int especialidadId))
-                cbEspecialidad.SelectedValue = especialidadId;
 
-            if (int.TryParse(dgvPrimerAño.CurrentRow.Cells[4]?.Value?.ToString(), out int nivelId))
-                cbNivelAcademico.SelectedValue = nivelId;
-
-            if (int.TryParse(dgvPrimerAño.CurrentRow.Cells[5]?.Value?.ToString(), out int seccionId))
-                cbSeccion.SelectedValue = seccionId;
-
-            if (int.TryParse(dgvPrimerAño.CurrentRow.Cells[8]?.Value?.ToString(), out int proyectoId))
-                cbProyecto.SelectedValue = proyectoId;
 
             lblEstado.Visible = true;
             rbActivo.Visible = true;

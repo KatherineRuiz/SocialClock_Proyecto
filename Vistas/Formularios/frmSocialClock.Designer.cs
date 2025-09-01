@@ -30,15 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSocialClock));
             this.pnlMenuPrincipal = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.pnlContenido = new System.Windows.Forms.Panel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnEstadistica = new System.Windows.Forms.Button();
             this.btnProyecto = new System.Windows.Forms.Button();
             this.btnInicio = new System.Windows.Forms.Button();
             this.btnAjustes = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.pnlContenido = new System.Windows.Forms.Panel();
             this.pnlMenuPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,6 +54,41 @@
             this.pnlMenuPrincipal.Name = "pnlMenuPrincipal";
             this.pnlMenuPrincipal.Size = new System.Drawing.Size(100, 749);
             this.pnlMenuPrincipal.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(100, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1270, 21);
+            this.panel1.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(100, 695);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1270, 54);
+            this.panel2.TabIndex = 2;
+            // 
+            // panel3
+            // 
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel3.Location = new System.Drawing.Point(1360, 21);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(10, 674);
+            this.panel3.TabIndex = 3;
+            // 
+            // pnlContenido
+            // 
+            this.pnlContenido.AutoScroll = true;
+            this.pnlContenido.BackColor = System.Drawing.Color.White;
+            this.pnlContenido.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlContenido.Location = new System.Drawing.Point(100, 21);
+            this.pnlContenido.Margin = new System.Windows.Forms.Padding(5, 20, 20, 20);
+            this.pnlContenido.Name = "pnlContenido";
+            this.pnlContenido.Size = new System.Drawing.Size(1260, 659);
+            this.pnlContenido.TabIndex = 4;
             // 
             // btnSalir
             // 
@@ -131,41 +166,6 @@
             this.btnAjustes.UseVisualStyleBackColor = false;
             this.btnAjustes.Click += new System.EventHandler(this.btnAjustes_Click);
             // 
-            // panel1
-            // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(100, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1270, 21);
-            this.panel1.TabIndex = 1;
-            // 
-            // panel2
-            // 
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(100, 695);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1270, 54);
-            this.panel2.TabIndex = 2;
-            // 
-            // panel3
-            // 
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(1360, 21);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(10, 674);
-            this.panel3.TabIndex = 3;
-            // 
-            // pnlContenido
-            // 
-            this.pnlContenido.AutoScroll = true;
-            this.pnlContenido.BackColor = System.Drawing.Color.White;
-            this.pnlContenido.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlContenido.Location = new System.Drawing.Point(100, 21);
-            this.pnlContenido.Margin = new System.Windows.Forms.Padding(5, 20, 20, 20);
-            this.pnlContenido.Name = "pnlContenido";
-            this.pnlContenido.Size = new System.Drawing.Size(1260, 659);
-            this.pnlContenido.TabIndex = 4;
-            // 
             // frmSocialClock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -179,7 +179,7 @@
             this.Controls.Add(this.pnlMenuPrincipal);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(1386, 788);
-            this.MinimumSize = new System.Drawing.Size(900, 600);
+            this.MinimumSize = new System.Drawing.Size(1200, 600);
             this.Name = "frmSocialClock";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmSocialClock";

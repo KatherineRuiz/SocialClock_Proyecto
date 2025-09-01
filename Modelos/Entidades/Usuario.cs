@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Modelos.Entidades
 {
@@ -23,53 +24,48 @@ namespace Modelos.Entidades
         public bool EstadoUsuario { get => estadoUsuario; set => estadoUsuario = value; }
         public int Id_Rol { get => id_Rol; set => id_Rol = value; }
 
-        public Usuario() { }    
+        public Usuario() { }
 
-        public string ConsultarClave(string user)
+        public bool VerificarLoginAdmin(string nombreusuario, string clave)
         {
-            string resultado = "";
+            string hashEnBaseDeDatos = "";
+            SqlConnection con = Conexion.Conectar();
+            string query = "Select clave from Usuario Where nombreUsuario = @Usuario and id_Rol = 1";
+            SqlCommand cmd = new SqlCommand(query, con);
 
-            using (SqlConnection conexion = Conexion.Conectar())
+            cmd.Parameters.AddWithValue("@Usuario", nombreusuario);
+
+            if (cmd.ExecuteScalar() == null)
             {
-                string consultaQuery = "SELECT clave FROM Usuario WHERE nombreUsuario = @usr and id_Rol = 1";
-
-                using (SqlCommand cmd = new SqlCommand(consultaQuery, conexion))
-                {
-                    cmd.Parameters.AddWithValue("@usr", user);
-
-                    object valor = cmd.ExecuteScalar();
-
-                    if (valor != null)
-                    {
-                        resultado = valor.ToString();
-                    }
-                }
+                return false;
             }
+            else
+            {
+                hashEnBaseDeDatos = cmd.ExecuteScalar().ToString();
 
-            return resultado;
+                return BCrypt.Net.BCrypt.Verify(clave, hashEnBaseDeDatos);
+            }
         }
 
-        public string ConsultarClaveColaborador(string user)
+        public bool VerificarLoginColaborador(string nombreusuario, string clave)
         {
-            string resultado = "";
+            string hashEnBaseDeDatos = "";
+            SqlConnection con = Conexion.Conectar();
+            string query = "Select clave from Usuario Where nombreUsuario = @Usuario and id_Rol = 2";
+            SqlCommand cmd = new SqlCommand(query, con);
 
-            using (SqlConnection conexion = Conexion.Conectar())
+            cmd.Parameters.AddWithValue("@Usuario", nombreusuario);
+
+            if (cmd.ExecuteScalar() == null)
             {
-                string consultaQuery = "SELECT clave FROM Usuario WHERE nombreUsuario = @usr and id_Rol = 2";
-
-                using (SqlCommand cmd = new SqlCommand(consultaQuery, conexion))
-                {
-                    cmd.Parameters.AddWithValue("@usr", user);
-                    object valor = cmd.ExecuteScalar();
-
-                    if (valor != null)
-                    {
-                        resultado = valor.ToString();
-                    }
-                }
+                return false;
             }
+            else
+            {
+                hashEnBaseDeDatos = cmd.ExecuteScalar().ToString();
 
-            return resultado;
+                return BCrypt.Net.BCrypt.Verify(clave, hashEnBaseDeDatos);
+            }
         }
 
         public static DataTable CargarUsuario()
@@ -103,6 +99,58 @@ namespace Modelos.Entidades
             {
                 return false;
             }
+        }
+
+        public bool EliminarUsuario(int id)
+        {
+            SqlConnection conexion = Conexion.Conectar();
+            string colsultaDelete = "Delete from Usuario where idUsuario = @id";
+            SqlCommand delete = new SqlCommand(colsultaDelete, conexion);
+            delete.Parameters.AddWithValue("@id", id);
+            if (delete.ExecuteNonQuery() > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool ActualizarUsuario()
+        {
+            try
+            {
+                SqlConnection conexion = Conexion.Conectar();
+                string consultaUpdate = "Update Usuario set nombreUsuario = @nombre, clave = @clave, estadoUsuario = @estadoUsuario, id_Rol = @id_Rol where idUsuario = @idUsuario";
+                SqlCommand actualizar = new SqlCommand(consultaUpdate, conexion);
+                actualizar.Parameters.AddWithValue("@nombre", nombreUsuario);
+                actualizar.Parameters.AddWithValue("@clave", clave);
+                actualizar.Parameters.AddWithValue("@estadoUsuario", estadoUsuario);
+                actualizar.Parameters.AddWithValue("@id_Rol", id_Rol);
+                actualizar.Parameters.AddWithValue("@idUsuario", IdUsuario);
+                actualizar.ExecuteNonQuery();
+                MessageBox.Show("Datos Actualizados", "Actualizar");
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al actualizar los datos" + ex);
+                return false;
+            }
+        }
+
+        public static DataTable BuscarUsuario(string termino)
+        {
+            SqlConnection conn = Conexion.Conectar();
+            string comando = $"select Usuario.idUsuario, Usuario.nombreUsuario As [Nombre], Rol.nombreRol As [Rol]," +
+                $" Usuario.clave As [Clave],CASE estadoUsuario\r\nwhen 0 then 'ACTIVO'\r\nwhen 1 then 'INACTIVO'\r\nEND As [Estado]" +
+                $"from Usuario inner join Rol on Usuario.id_Rol = Rol.idRol " +
+                $"where Usuario.nombreUsuario LIKE '%{termino}%';";
+            SqlDataAdapter ad = new SqlDataAdapter(comando, conn);
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+            return dt;
         }
     }
 }

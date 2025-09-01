@@ -129,6 +129,7 @@
             this.btnInicio.Size = new System.Drawing.Size(100, 122);
             this.btnInicio.TabIndex = 8;
             this.btnInicio.UseVisualStyleBackColor = true;
+            this.btnInicio.Click += new System.EventHandler(this.btnInicio_Click_1);
             // 
             // btnSalir
             // 
@@ -157,6 +158,8 @@
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
+            this.MaximumSize = new System.Drawing.Size(1386, 788);
+            this.MinimumSize = new System.Drawing.Size(1200, 600);
             this.Name = "frmSocialClock_Colaborador";
             this.Text = "frmSocialClock_Colaborador";
             this.Load += new System.EventHandler(this.frmSocialClock_Colaborador_Load);

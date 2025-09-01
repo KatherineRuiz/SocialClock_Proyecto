@@ -10,6 +10,8 @@ using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Forms;
+using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace Modelos.Entidades
 {
@@ -322,7 +324,14 @@ namespace Modelos.Entidades
             try
             {
                 add.Fill(dataVirtual);
-                MessageBox.Show("Busqueda exitosa", "Exito");
+                if (dataVirtual.Rows.Count > 0)
+                {
+                    MessageBox.Show("Búsqueda exitosa", "Éxito");
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron resultados para el carnet ingresado", "Sin resultados");
+                }
             }
             catch (Exception ex)
             {
@@ -376,7 +385,7 @@ namespace Modelos.Entidades
             return virtualTable;
         }
 
-        public static DataTable BuscarEstudianteProyecto(string carnet, int proyecto)
+        public static DataTable BuscarEstudianteProyecto(string carnet, string proyecto)
         {
             //Creamos una variable de tipo SqlConnection y llamamos al metodo de la clase Conexion
             SqlConnection conexion = Conexion.Conectar();
@@ -393,7 +402,7 @@ namespace Modelos.Entidades
             "INNER JOIN Especialidad ON Esp_Niv_Sec.id_Especialidad = Especialidad.idEspecialidad " +
             "INNER JOIN NivelAcademico ON Esp_Niv_Sec.id_NivelAcademico = NivelAcademico.idNivelAcademico " +
             "INNER JOIN Seccion ON Esp_Niv_Sec.id_Seccion = Seccion.idSeccion " +
-            $"WHERE carnet LIKE '%{carnet}%' and idProyecto = '%{proyecto}%'" +
+            $"WHERE carnet LIKE '%{carnet}%' and nombreProyecto = '{proyecto}'" +
             "GROUP BY Estudiante.idEstudiante, carnet, nombreEstudiante, Especialidad.nombreEspecialidad, " +
             "NivelAcademico.nombreNivel, Seccion.nombreSeccion, nie, estadoEstudiante, Proyecto.nombreProyecto;";
 
@@ -405,7 +414,14 @@ namespace Modelos.Entidades
             try
             {
                 add.Fill(dataVirtual);
-                MessageBox.Show("Busqueda exitosa", "Exito");
+                if (dataVirtual.Rows.Count > 0)
+                {
+                    MessageBox.Show("Búsqueda exitosa", "Éxito");
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron resultados para el carnet ingresado", "Sin resultados");
+                }
             }
             catch (Exception ex)
             {
