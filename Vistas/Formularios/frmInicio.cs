@@ -522,11 +522,6 @@ namespace Vistas.Formularios
 
         #endregion
 
-        private void dgvPrimerAño_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             txtNombre.Text = "";

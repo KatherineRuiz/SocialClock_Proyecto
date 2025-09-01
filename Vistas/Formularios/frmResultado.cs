@@ -28,7 +28,7 @@ namespace Vistas.Formularios
             lblEstado.Visible = false;
             rbActivo.Visible = false;
             rbInactivo.Visible = false;
-            btnRegresar.Visible = true;
+            btnRegresar.Visible = false;
 
             dtpFechaBitacora.MinDate = DateTime.Today;
             dtpFechaBitacora.MaxDate = DateTime.Today;
@@ -368,9 +368,9 @@ namespace Vistas.Formularios
 
         private void btnVerBitacora_Click(object sender, EventArgs e)
         {
-            if (dgvEstudianteEncontrado.CurrentRow == null)
+            if (dgvEstudianteEncontrado.CurrentRow == null || btnRegresar.Visible == true)
             {
-                MessageBox.Show("Asegúrese de seleccionar un registro", "Advertencia");
+                MessageBox.Show("Asegúrese de seleccionar un registro de estudiante", "Advertencia");
                 return;
             }
             else
@@ -437,7 +437,7 @@ namespace Vistas.Formularios
         {
             try
             {
-                if (dgvEstudianteEncontrado.CurrentRow == null)
+                if (dgvEstudianteEncontrado.CurrentRow == null || btnRegresar.Visible == false)
                 {
                     MessageBox.Show("Asegúrese de seleccionar un registro", "Advertencia");
                     return;

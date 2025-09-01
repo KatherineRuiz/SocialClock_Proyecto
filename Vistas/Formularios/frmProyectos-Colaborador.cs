@@ -17,11 +17,13 @@ namespace Vistas.Formularios
 {
     public partial class frmProyectos_Colaborador : Form
     {
+        int proyectoseleccionado;
         public frmProyectos_Colaborador()
         {
             InitializeComponent();
-            mostrarProyecto();
-            proyectoConexion();
+            MostrarProyecto();
+            tpEstudiantesProyecto.Visible = false;
+            btnRegresarEstudiantes.Visible = false;
         }
 
         private void RedondearPanel(Panel panel, int radio)
@@ -38,117 +40,208 @@ namespace Vistas.Formularios
             panel.Region = new Region(path);
         }
 
-        private void mostrarProyecto()
+        private void MostrarProyecto()
         {
             dgvContenido.DataSource = null;
             dgvContenido.DataSource = Proyecto.CargarTodosProyectos();
         }
 
-        private void proyectoConexion()
+        private void MostrarBitacora(int idEstudiante)
         {
-            dgvBitacoraEstudiantesColaborador.DataSource = null;
-            dgvBitacoraEstudiantesColaborador.DataSource = Proyecto.ObtenerEstudiantesPorProyecto(idProyecto);
-        }
-
-
-        private void dgvContenido_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0) // Asegura que no sea encabezado
-            {
-            // Leer los datos del registro seleccionado
-                DataGridViewRow fila = dgvContenido.Rows[e.RowIndex];
-
-                string id = fila.Cells["Num."].Value.ToString();
-                string Proyecto = fila.Cells["Proyecto"].Value.ToString();
-                // cbProyecto.Text = Proyecto ;
-
-                tabControl1.SelectedTab = tpEstudiantesProyecto;
-            }
+            dgvBitacoraEstudiantes.DataSource = null;
+            dgvBitacoraEstudiantes.DataSource = BitacoraSocial.CargarBitacoraSocial(idEstudiante);
+            btnRegresarEstudiantes.Visible = true;
         }
 
         private void frmProyectos_Colaborador_Load(object sender, EventArgs e)
         {
-            mostrarProyecto();
+            MostrarProyecto();
           
         }
+       
 
-        private void btnRegresar_Click(object sender, EventArgs e)
+
+        private void btnBusqueda_Click(object sender, EventArgs e)
         {
-            new frmProyectos_Colaborador().Show();
-            this.Hide();
-        }
-
-        private void dgvBitacoraEstudiantes_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dgvBitacoraEstudiantes_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
+            if (!string.IsNullOrWhiteSpace(txtBuscar.Text))
             {
-                DataGridViewRow fila = dgvContenido.Rows[e.RowIndex];
-
-                txtNombreEstudiante.Text = fila.Cells["Nombre"].Value?.ToString() ?? "";
-                txtHoras.Text = fila.Cells["Horas"].Value?.ToString() ?? "";
-                txtActvidad.Text = fila.Cells["ActividadRealizada"].Value?.ToString() ?? "";
+                try
+                {
+                    dgvContenido.DataSource = null;
+                    dgvContenido.DataSource = Proyecto.BuscarProyecto(txtBuscar.Text);
+                }
+                catch (Exception)
+                {
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Asegurese de ingresar un valor en el campo de búsqueda", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
-        private void dgvBitacoraEstudiantesColaborador_CellClick(object sender, DataGridViewCellEventArgs e)
+
+        private void dgvContenido_DoubleClick(object sender, EventArgs e)
         {
+            tpEstudiantesProyecto.Visible = true;
+            tcProyectos.SelectedTab = tpEstudiantesProyecto;
             try
             {
-                if (e.RowIndex >= 0)
-                {
-                    DataGridViewRow fila = dgvBitacoraEstudiantesColaborador.Rows[e.RowIndex];
-
-                    // Asegúrate de que estas columnas existen exactamente con ese nombre en tu DataGridView
-                    txtHoras.Text = fila.Cells["Horas"].Value?.ToString();
-                    txtActvidad.Text = fila.Cells["Proyecto"].Value?.ToString();
-
-                    // Si tienes una columna "Fecha", puedes activarla aquí:
-                    // dtpFechaBitacora.Value = Convert.ToDateTime(fila.Cells["Fecha"].Value);
-                }
+                dgvBitacoraEstudiantes.DataSource = null;
+                dgvBitacoraEstudiantes.DataSource = Estudiante.CargarEstudianteProyecto(Convert.ToInt32(dgvContenido.CurrentRow.Cells[0].Value.ToString()));
+                proyectoseleccionado = Convert.ToInt32(dgvContenido.CurrentRow.Cells[0].Value.ToString());
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudo mostrar: " + ex.Message, "Error catastrófico");
+                MessageBox.Show(ex.Message);
             }
         }
 
+
+        private void dgvBitacoraEstudiantes_DoubleClick(object sender, EventArgs e)
+        {
+            if (btnRegresarEstudiantes.Visible == false)
+            {
+                txtNumEstudiante.Text = dgvBitacoraEstudiantes.CurrentRow.Cells[0].Value.ToString();
+
+            }
+            else
+            {
+                txtNumEstudiante.Text = dgvBitacoraEstudiantes.CurrentRow.Cells[4].Value.ToString();
+                txtActvidad.Text = dgvBitacoraEstudiantes.CurrentRow.Cells[2].Value.ToString();
+                txtHoras.Text = dgvBitacoraEstudiantes.CurrentRow.Cells[1].Value.ToString();
+
+            }
+        }
+
+        private void btnRegistrar_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtHoras.Text) && !string.IsNullOrWhiteSpace(txtActvidad.Text))
+            {
+                //Creamos un objeto Bitacora
+                BitacoraSocial bi = new BitacoraSocial();
+                bi.RegistroHoras = Convert.ToInt32(txtHoras.Text);
+                bi.Descripcion = txtActvidad.Text;
+                bi.FechaBitacora = dtpFechaBitacora.Value;
+                bi.IdEstudiante = Convert.ToInt32(txtNumEstudiante.Text);
+
+                try
+                {
+                    bi.InsertarBitacoraSocial();
+
+                    MostrarBitacora(Convert.ToInt32(txtNumEstudiante.Text));
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Error al insgresar datos", "Advertencia");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Asegurese de llenar todos los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
 
         private void btnVerBitacora_Click(object sender, EventArgs e)
         {
-            try
+            if (dgvBitacoraEstudiantes.CurrentRow == null || btnRegresarEstudiantes.Visible == true)
             {
-                if (dgvContenido.SelectedRows.Count > 0)
+                MessageBox.Show("Asegúrese de seleccionar un registro de estudiante", "Advertencia");
+                return;
+            }
+            else
+            {
+                int idEstudiante = int.Parse(dgvBitacoraEstudiantes.CurrentRow.Cells[0].Value.ToString());
+                MostrarBitacora(idEstudiante);
+            }
+        }
+
+        private void btnLimpiarBitacora_Click(object sender, EventArgs e)
+        {
+            txtNumEstudiante.Text = "";
+            txtHoras.Text = "";
+            txtActvidad.Text = "";
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtHoras.Text) && !string.IsNullOrWhiteSpace(txtActvidad.Text))
+            {
+                BitacoraSocial bi = new BitacoraSocial();
+                bi.RegistroHoras = Convert.ToInt32(txtHoras.Text);
+                bi.Descripcion = txtActvidad.Text;
+                bi.FechaBitacora = dtpFechaBitacora.Value;
+                bi.IdEstudiante = Convert.ToInt32(txtNumEstudiante.Text);
+
+                if (dgvBitacoraEstudiantes.CurrentRow == null)
                 {
-                    int idEstudiante = Convert.ToInt32(dgvContenido.SelectedRows[0].Cells["Num."].Value);
-
-                    // Asegúrate de tener el using correcto o usar el nombre completo de la clase aquí
-                    DataTable bitacora = BitacoraSocial.ObtenerBitacoraPorEstudiante(idEstudiante);
-
-                    dgvBitacoraEstudiantesColaborador.DataSource = bitacora;
-
-                    // Cambiar a la pestaña donde está el dgvBitacoraEstudiantes
-                    tabControl1.SelectedTab = tpEstudiantesProyecto;
+                    MessageBox.Show("Asegúrese de seleccionar un registro", "Advertencia");
+                    return;
                 }
                 else
                 {
-                    MessageBox.Show("Selecciona un estudiante para ver su bitácora.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    bi.IdBitacora = int.Parse(dgvBitacoraEstudiantes.CurrentRow.Cells[0].Value.ToString());
+                }
+
+                string registroEditar = dgvBitacoraEstudiantes.CurrentRow.Cells[2].Value?.ToString();
+                DialogResult respuesta = MessageBox.Show("¿Quieres editar este registro?\n" + registroEditar,
+                                                          "Editar registro", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (respuesta == DialogResult.Yes)
+                {
+                    if (bi.ActualizarBitacora() == true)
+                    {
+                        MostrarBitacora(Convert.ToInt32(txtNumEstudiante.Text));
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo editar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Asegurese de llenar todos los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnEliminarBitacora_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvBitacoraEstudiantes.CurrentRow == null || btnRegresarEstudiantes.Visible == false)
+                {
+                    MessageBox.Show("Asegúrese de seleccionar un registro de bitacora", "Advertencia");
+                    return;
+                }
+
+                BitacoraSocial bi = new BitacoraSocial();
+                int id = int.Parse(dgvBitacoraEstudiantes.CurrentRow.Cells[0].Value.ToString());
+
+                string registroEliminar = dgvBitacoraEstudiantes.CurrentRow.Cells[2].Value?.ToString();
+                DialogResult respuesta = MessageBox.Show("¿Quieres eliminar este registro?\n" + registroEliminar,
+                                                         "Eliminar registro", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (respuesta == DialogResult.Yes)
+                {
+                    if (bi.EliminarBitacora(id) == true)
+                    {
+                        MessageBox.Show("Registro eliminado\n" + registroEliminar, "Eliminando", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MostrarBitacora(Convert.ToInt32(txtNumEstudiante.Text));
+                    }
                 }
             }
             catch (Exception ex)
             {
-
-                MessageBox.Show("No se pudo realizar la accion"+ex.Message,"Error Catastrofico");
+                MessageBox.Show("Error: " + ex.Message);
+                return;
             }
-        }
-
-        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

@@ -60,26 +60,6 @@ namespace Modelos.Entidades
             }
         }
 
-
-        public static DataTable CargarEstudianteProyecto()
-        {
-
-            SqlConnection conexion = Conexion.Conectar();
-            string consultaQuery = "select carnet As [Carnet], nombreEstudiante As [Nombre],Especialidad.nombreEspecialidad As [Especialidad]," +
-                "\r\nNivelAcademico.nombreNivel As [Nivel académico], Seccion.nombreSeccion As [Seccion], nie As [NIE], CASE estadoEstudiante" +
-                "\r\nwhen 0 then 'ACTIVO'\r\nwhen 1 then 'INACTIVO'\r\nEND As [Estado],\r\nProyecto.nombreProyecto As [Proyecto], BitacoraSocial.registroHoras As [No. Horas]" +
-                "\r\nfrom Estudiante \r\nLEFT JOIN \r\nBitacoraSocial on BitacoraSocial.idEstudiante = Estudiante.idEstudiante" +
-                "\r\nINNER JOIN\r\nProyecto on Estudiante.id_Proyecto = Proyecto.idProyecto" +
-                "\r\nINNER JOIN\r\nEsp_Niv_Sec on Estudiante.id_EspNivSec = Esp_Niv_Sec.idEsp_Niv_Sec" +
-                "\r\nINNER JOIN\r\nEspecialidad on Esp_Niv_Sec.id_Especialidad = Especialidad.idEspecialidad" +
-                "\r\nINNER JOIN \r\nNivelAcademico on Esp_Niv_Sec.id_NivelAcademico = NivelAcademico.idNivelAcademico" +
-                "\r\nINNER JOIN \r\nSeccion on Esp_Niv_Sec.id_Seccion = Seccion.idSeccion;";
-            SqlDataAdapter add = new SqlDataAdapter(consultaQuery, conexion);
-            DataTable virtualTable = new DataTable();
-            add.Fill(virtualTable);
-            return virtualTable;
-        }
-
         public bool ActualizarProyectos()
 
         {
@@ -102,7 +82,7 @@ namespace Modelos.Entidades
         }
         public bool EliminarProyectos(int idProyecto)
         {
-            SqlConnection conexion = null;
+            SqlConnection conexion;
             try
             {
                 conexion = Conexion.Conectar();
@@ -114,38 +94,22 @@ namespace Modelos.Entidades
 
                 return filasAfectadas > 0; 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                System.Windows.Forms.MessageBox.Show("No se pudo eliminar el proyecto, intente de nuevo.\nError: " + ex.Message,
-                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false; 
-            }
-            finally
-            {
-                if (conexion != null && conexion.State == ConnectionState.Open)
-                {
-                    conexion.Close();
-                }
             }
         }
 
-        public static DataTable Buscar(string termino)
+        public static DataTable BuscarProyecto(string nombre)
         {
             try
             {
                 SqlConnection connection = Conexion.Conectar();
-                string Comando = @"SELECT 
-                               idProyecto AS NUM,
-                               nombreProyecto AS Proyecto, 
-                               CASE estadoProyecto
-                                   WHEN 0 THEN 'ACTIVO'
-                                   WHEN 1 THEN 'INACTIVO'
-                               END AS [Estado]
-                           FROM Proyecto
-                           WHERE nombreProyecto LIKE @termino";
+                string Comando = "SELECT idProyecto AS [N°],nombreProyecto AS Proyecto," +
+                    " CASE estadoProyecto WHEN 0 THEN 'ACTIVO' WHEN 1 THEN 'INACTIVO' END AS [Estado] " +
+                    $"FROM Proyecto WHERE nombreProyecto LIKE '%{nombre}%'";
 
                 SqlDataAdapter ad = new SqlDataAdapter(Comando, connection);
-                ad.SelectCommand.Parameters.AddWithValue("@termino", "%" + termino + "%");
 
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
@@ -153,7 +117,7 @@ namespace Modelos.Entidades
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudo buscar el registro.\nDetalle: " + ex.Message,
+                MessageBox.Show("No se pudo realizar la busqueda.\nDetalle: " + ex.Message,
                                 "Error",
                                 MessageBoxButton.OK,
                                 MessageBoxImage.Error);
@@ -228,7 +192,6 @@ namespace Modelos.Entidades
 
             return dt;
         }
-
 
 
 

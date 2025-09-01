@@ -94,3 +94,12 @@ C:\Users\rodri\OneDrive\Desktop\SocialClock_Proyecto\Modelos\obj\Debug\Modelos.c
 C:\Users\rodri\OneDrive\Desktop\SocialClock_Proyecto\Modelos\obj\Debug\Modelos.csproj.Up2Date
 C:\Users\rodri\OneDrive\Desktop\SocialClock_Proyecto\Modelos\obj\Debug\Modelos.dll
 C:\Users\rodri\OneDrive\Desktop\SocialClock_Proyecto\Modelos\obj\Debug\Modelos.pdb
+C:\Users\garbr\OneDrive\Escritorio\SocialClock_Proyecto\Modelos\bin\Debug\Modelos.dll
+C:\Users\garbr\OneDrive\Escritorio\SocialClock_Proyecto\Modelos\bin\Debug\Modelos.pdb
+C:\Users\garbr\OneDrive\Escritorio\SocialClock_Proyecto\Modelos\bin\Debug\System.Data.SqlClient.dll
+C:\Users\garbr\OneDrive\Escritorio\SocialClock_Proyecto\Modelos\bin\Debug\System.Data.SqlClient.xml
+C:\Users\garbr\OneDrive\Escritorio\SocialClock_Proyecto\Modelos\obj\Debug\Modelos.csproj.AssemblyReference.cache
+C:\Users\garbr\OneDrive\Escritorio\SocialClock_Proyecto\Modelos\obj\Debug\Modelos.csproj.CoreCompileInputs.cache
+C:\Users\garbr\OneDrive\Escritorio\SocialClock_Proyecto\Modelos\obj\Debug\Modelos.csproj.Up2Date
+C:\Users\garbr\OneDrive\Escritorio\SocialClock_Proyecto\Modelos\obj\Debug\Modelos.dll
+C:\Users\garbr\OneDrive\Escritorio\SocialClock_Proyecto\Modelos\obj\Debug\Modelos.pdb

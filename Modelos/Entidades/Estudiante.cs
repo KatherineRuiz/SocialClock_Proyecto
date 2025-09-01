@@ -351,7 +351,69 @@ namespace Modelos.Entidades
             }
         }
 
+        public static DataTable CargarEstudianteProyecto(int idProyecto)
+        {
 
+            SqlConnection conexion = Conexion.Conectar();
+            string consultaQuery = "SELECT Estudiante.idEstudiante AS [N°], carnet AS [Carnet], nombreEstudiante AS [Nombre], " +
+                "Especialidad.nombreEspecialidad AS [Especialidad], NivelAcademico.nombreNivel AS [Nivel académico], " +
+                "Seccion.nombreSeccion AS [Seccion], nie AS [NIE], " +
+                "CASE estadoEstudiante WHEN 0 THEN 'ACTIVO' WHEN 1 THEN 'INACTIVO' END AS [Estado], " +
+                "Proyecto.nombreProyecto AS [Proyecto], SUM(BitacoraSocial.registroHoras) AS [No. Horas] " +
+                "FROM Estudiante " +
+                "LEFT JOIN BitacoraSocial ON BitacoraSocial.idEstudiante = Estudiante.idEstudiante " +
+                "INNER JOIN Proyecto ON Estudiante.id_Proyecto = Proyecto.idProyecto " +
+                "INNER JOIN Esp_Niv_Sec ON Estudiante.id_EspNivSec = Esp_Niv_Sec.idEsp_Niv_Sec " +
+                "INNER JOIN Especialidad ON Esp_Niv_Sec.id_Especialidad = Especialidad.idEspecialidad " +
+                "INNER JOIN NivelAcademico ON Esp_Niv_Sec.id_NivelAcademico = NivelAcademico.idNivelAcademico " +
+                "INNER JOIN Seccion ON Esp_Niv_Sec.id_Seccion = Seccion.idSeccion " +
+                $"WHERE estadoEstudiante = 0 AND idProyecto = {idProyecto} " +
+                "GROUP BY Estudiante.idEstudiante, carnet, nombreEstudiante, Especialidad.nombreEspecialidad, " +
+                "NivelAcademico.nombreNivel, Seccion.nombreSeccion, nie, estadoEstudiante, Proyecto.nombreProyecto;";
+            SqlDataAdapter add = new SqlDataAdapter(consultaQuery, conexion);
+            DataTable virtualTable = new DataTable();
+            add.Fill(virtualTable);
+            return virtualTable;
+        }
+
+        public static DataTable BuscarEstudianteProyecto(string carnet, int proyecto)
+        {
+            //Creamos una variable de tipo SqlConnection y llamamos al metodo de la clase Conexion
+            SqlConnection conexion = Conexion.Conectar();
+
+            string consultaQuery = "SELECT Estudiante.idEstudiante AS [N°], carnet AS [Carnet], nombreEstudiante AS [Nombre], " +
+            "Especialidad.nombreEspecialidad AS [Especialidad], NivelAcademico.nombreNivel AS [Nivel académico], " +
+            "Seccion.nombreSeccion AS [Seccion], nie AS [NIE], " +
+             "CASE estadoEstudiante WHEN 0 THEN 'ACTIVO' WHEN 1 THEN 'INACTIVO' END AS [Estado], " +
+            "Proyecto.nombreProyecto AS [Proyecto], SUM(BitacoraSocial.registroHoras) AS [No. Horas] " +
+            "FROM Estudiante " +
+            "LEFT JOIN BitacoraSocial ON BitacoraSocial.idEstudiante = Estudiante.idEstudiante " +
+            "INNER JOIN Proyecto ON Estudiante.id_Proyecto = Proyecto.idProyecto " +
+            "INNER JOIN Esp_Niv_Sec ON Estudiante.id_EspNivSec = Esp_Niv_Sec.idEsp_Niv_Sec " +
+            "INNER JOIN Especialidad ON Esp_Niv_Sec.id_Especialidad = Especialidad.idEspecialidad " +
+            "INNER JOIN NivelAcademico ON Esp_Niv_Sec.id_NivelAcademico = NivelAcademico.idNivelAcademico " +
+            "INNER JOIN Seccion ON Esp_Niv_Sec.id_Seccion = Seccion.idSeccion " +
+            $"WHERE carnet LIKE '%{carnet}%' and idProyecto = '%{proyecto}%'" +
+            "GROUP BY Estudiante.idEstudiante, carnet, nombreEstudiante, Especialidad.nombreEspecialidad, " +
+            "NivelAcademico.nombreNivel, Seccion.nombreSeccion, nie, estadoEstudiante, Proyecto.nombreProyecto;";
+
+
+            SqlDataAdapter add = new SqlDataAdapter(consultaQuery, conexion);
+            //Creamos un objeto DataTable, una tabla donde se guardara la informacion
+            DataTable dataVirtual = new DataTable();
+            //Pasamos la informacion de adaptador a la tabla
+            try
+            {
+                add.Fill(dataVirtual);
+                MessageBox.Show("Busqueda exitosa", "Exito");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo realizar la busqueda" + ex);
+            }
+
+            return dataVirtual;
+        }
 
     }
 
